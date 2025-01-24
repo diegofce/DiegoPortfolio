@@ -1,5 +1,5 @@
 import styles from './HeroStyles.module.css';
-import heroImg from '../../assets/hero-img.png';
+import heroImg from '../../assets/perfilWebP.png';
 import sun from '../../assets/sun.svg';
 import moon from '../../assets/moon.svg';
 import instagramIcon2 from '../../assets/icons8-instagram2.svg';
@@ -69,7 +69,7 @@ function Hero() {
           passionate about technology, I try to learn more every day.
         </p>
         <a href={CV} download>
-          <button className="hover">Resume ⏬</button>
+          <button className="hover"> CV ⏬</button>
         </a>
       </div>
     </section>

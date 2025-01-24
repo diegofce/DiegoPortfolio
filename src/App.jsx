@@ -4,16 +4,20 @@ import Footer from './sections/Footer/Footer';
 import Hero from './sections/Hero/Hero';
 import Projects from './sections/Projects/Projects';
 import Skills from './sections/Skills/Skills';
+import ParticlesBackground from './components/ParticlesBackground';
 
 function App() {
   return (
-    <>
-      <Hero />
-      <Projects />
-      <Skills />
-      <Contact />
-      <Footer />
-    </>
+    <div>
+      <ParticlesBackground />
+      <div>
+        <Hero />
+        <Projects />
+        <Skills />
+        <Contact />
+        <Footer />
+      </div>
+    </div>
   );
 }
 

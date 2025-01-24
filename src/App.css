@@ -16,6 +16,15 @@
   --text-color: #fff;
   --form-text-color: #fff;
   --footer-text-color: #bbb;
+
+}
+#particles-js {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 0;
 }
 
 body {
@@ -24,11 +33,16 @@ body {
   justify-content: center;
   margin: 0 auto 60px;
 }
+#root > div {
+  position: relative;
+  z-index: 1;
+}
 
 #root {
   display: flex;
   flex-direction: column;
   gap: 60px;
+
 }
 
 h1,
