@@ -1,4 +1,5 @@
-const simpleIcon = (slug, color = 'e8f1ff') => `https://cdn.simpleicons.org/${slug}/${color}`;
+const simpleIcon = (slug, color = 'e8f1ff') =>
+  `https://cdn.simpleicons.org/${slug}/${color}`;
 
 export const technologies = [
   { name: 'Python', category: 'Backend', icon: simpleIcon('python'), short: 'PY' },
@@ -13,20 +14,45 @@ export const technologies = [
   { name: 'Vite', category: 'Frontend', icon: simpleIcon('vite'), short: 'VT' },
   { name: 'PostgreSQL', category: 'Databases', icon: simpleIcon('postgresql'), short: 'PG' },
   { name: 'SQLite', category: 'Databases', icon: simpleIcon('sqlite'), short: 'SQL' },
-  { name: 'SQL', category: 'Databases', icon: null, short: 'SQL' },
-  { name: 'Clean Architecture', category: 'Architecture', icon: null, short: 'CA' },
-  { name: 'SOLID', category: 'Architecture', icon: null, short: 'SOL' },
-  { name: 'Multi-tenant systems', category: 'Architecture', icon: null, short: 'MT' },
-  { name: 'REST API', category: 'Architecture', icon: null, short: 'API' },
+  { name: 'SQL', category: 'Databases', icon: 'concept:database', short: 'SQL' },
+  {
+    name: 'Clean Architecture',
+    category: 'Architecture',
+    icon: 'concept:layers',
+    short: 'CA',
+  },
+  { name: 'SOLID', category: 'Architecture', icon: 'concept:hexagon', short: 'SOL' },
+  {
+    name: 'Multi-tenant Systems',
+    category: 'Architecture',
+    icon: 'concept:nodes',
+    short: 'MT',
+  },
+  { name: 'REST API', category: 'Architecture', icon: 'concept:api', short: 'API' },
   { name: 'JWT', category: 'Architecture', icon: simpleIcon('jsonwebtokens'), short: 'JWT' },
-  { name: 'OAuth2', category: 'Architecture', icon: null, short: 'OA2' },
+  { name: 'OAuth2', category: 'Architecture', icon: 'concept:key', short: 'OA2' },
   { name: 'Redis', category: 'Infrastructure', icon: simpleIcon('redis'), short: 'RE' },
   { name: 'Celery', category: 'Infrastructure', icon: simpleIcon('celery'), short: 'CE' },
   { name: 'Docker', category: 'Infrastructure', icon: simpleIcon('docker'), short: 'DO' },
   { name: 'Git', category: 'Infrastructure', icon: simpleIcon('git'), short: 'GT' },
   { name: 'GitHub', category: 'Infrastructure', icon: simpleIcon('github'), short: 'GH' },
-  { name: 'AI API integrations', category: 'AI & Automation', icon: null, short: 'AI' },
-  { name: 'Prompt Engineering', category: 'AI & Automation', icon: null, short: 'PE' },
-  { name: 'Codex', category: 'AI & Automation', icon: null, short: 'CX' },
-  { name: 'Claude Code', category: 'AI & Automation', icon: null, short: 'CC' },
+  {
+    name: 'AI API Integrations',
+    category: 'AI & Automation',
+    icon: 'concept:spark',
+    short: 'AI',
+  },
+  {
+    name: 'Prompt Engineering',
+    category: 'AI & Automation',
+    icon: 'concept:prompt',
+    short: 'PE',
+  },
+  { name: 'Codex', category: 'AI & Automation', icon: 'concept:code', short: 'CX' },
+  {
+    name: 'Claude Code',
+    category: 'AI & Automation',
+    icon: 'concept:terminal',
+    short: 'CC',
+  },
 ];

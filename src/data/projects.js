@@ -1,6 +1,7 @@
 export const projects = [
   {
     title: 'TeamSalud',
+    slug: 'team-salud',
     category: 'HealthTech / Full Stack',
     status: 'Featured',
     featured: true,
@@ -11,10 +12,10 @@ export const projects = [
     stack: ['HealthTech', 'Full Stack'],
     github: '',
     demo: '',
-    assetPath: '/src/assets/projects/team-salud/',
   },
   {
     title: 'BookingSaaS',
+    slug: 'booking-saas',
     category: 'SaaS / Backend Architecture',
     status: 'Featured',
     featured: true,
@@ -25,10 +26,10 @@ export const projects = [
     stack: ['FastAPI', 'React', 'PostgreSQL', 'Celery', 'Redis', 'JWT'],
     github: '',
     demo: '',
-    assetPath: '/src/assets/projects/booking-saas/',
   },
   {
     title: 'AI Integration Project',
+    slug: 'ai-integration-project',
     category: 'AI Integration',
     status: 'Coming Soon',
     featured: true,
@@ -39,10 +40,10 @@ export const projects = [
     stack: ['AI APIs', 'Automation', 'Prompt Engineering'],
     github: '',
     demo: '',
-    assetPath: '/src/assets/projects/ai-integration-project/',
   },
   {
     title: 'Project 04',
+    slug: 'project-04',
     category: 'Full Stack',
     status: 'Placeholder',
     featured: false,
@@ -53,10 +54,10 @@ export const projects = [
     stack: ['Project data pending'],
     github: '',
     demo: '',
-    assetPath: '/src/assets/projects/project-04/',
   },
   {
     title: 'Project 05',
+    slug: 'project-05',
     category: 'Backend',
     status: 'Placeholder',
     featured: false,
@@ -67,10 +68,10 @@ export const projects = [
     stack: ['Project data pending'],
     github: '',
     demo: '',
-    assetPath: '/src/assets/projects/project-05/',
   },
   {
     title: 'Project 06',
+    slug: 'project-06',
     category: 'Automation',
     status: 'Placeholder',
     featured: false,
@@ -81,6 +82,5 @@ export const projects = [
     stack: ['Project data pending'],
     github: '',
     demo: '',
-    assetPath: '/src/assets/projects/project-06/',
   },
 ];
