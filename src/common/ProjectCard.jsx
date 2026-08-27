@@ -1,5 +1,3 @@
-import React from 'react';
-
 function ProjectCard({ src, link, h3, p }) {
   return (
     <a href={link} target="_blank">
@@ -11,3 +9,4 @@ function ProjectCard({ src, link, h3, p }) {
 }
 
 export default ProjectCard;
+

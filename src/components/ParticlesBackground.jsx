@@ -1,4 +1,4 @@
-import React, { useEffect } from 'react';
+import { useEffect } from 'react';
 import { useTheme } from '../common/ThemeContext'; // Importa el hook de tema
 
 const ParticlesBackground = () => {
