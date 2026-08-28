@@ -37,7 +37,8 @@ export const translations = {
       buildTitle: 'De la interfaz a la infraestructura',
       educationTitle: 'Formación formal y crecimiento continuo',
     },
-    ui: { primaryNavigation: 'Navegación principal', goHome: 'Ir al inicio', openMenu: 'Abrir menú de navegación', closeMenu: 'Cerrar menú de navegación', architectureFlow: 'Flujo de arquitectura de software', builtWith: 'Construido con React', problem: 'Problema', solution: 'Solución', architecture: 'Arquitectura', githubPending: 'GitHub pendiente', demoPending: 'Demo en vivo pendiente', viewProject: 'Ver proyecto', assistantPreview: 'Asistente del portafolio', askAbout: 'Pregunta por proyectos, stack, arquitectura e integración de IA. Las respuestas se limitan al contenido confirmado del portafolio.', aiLabel: 'IA y automatización' },
+    ui: { primaryNavigation: 'Navegación principal', goHome: 'Ir al inicio', openMenu: 'Abrir menú de navegación', closeMenu: 'Cerrar menú de navegación', architectureFlow: 'Flujo de arquitectura de software', builtWith: 'Construido con React', problem: 'Problema', solution: 'Solución', architecture: 'Arquitectura', githubPending: 'GitHub pendiente', demoPending: 'Demo en vivo pendiente', viewProject: 'Ver proyecto', assistantPreview: 'Asistente del portafolio', askAbout: 'Pregunta por proyectos, stack, arquitectura e integración de IA. Las respuestas se limitan al contenido confirmado del portafolio.', aiLabel: 'IA y automatización', cleanArchitecture: 'Arquitectura limpia', projectDataPending: 'Datos del proyecto pendientes' },
+    categories: { Backend: 'Backend', Frontend: 'Frontend', Databases: 'Bases de datos', Infrastructure: 'Infraestructura', Architecture: 'Arquitectura', 'AI & Automation': 'IA y automatización' },
     assistant: {
       toggle: 'Pregúntale a Diego AI',
       close: 'Cerrar asistente de IA',
@@ -89,7 +90,8 @@ export const translations = {
       buildTitle: 'From interface to infrastructure',
       educationTitle: 'Formal training and continued growth',
     },
-    ui: { primaryNavigation: 'Primary navigation', goHome: 'Go to home', openMenu: 'Open navigation menu', closeMenu: 'Close navigation menu', architectureFlow: 'Software architecture flow', builtWith: 'Built with React', problem: 'Problem', solution: 'Solution', architecture: 'Architecture', githubPending: 'GitHub pending', demoPending: 'Live demo pending', viewProject: 'View project', assistantPreview: 'Portfolio Assistant', askAbout: 'Ask about projects, stack, architecture and AI integration. Answers are limited to confirmed portfolio content.', aiLabel: 'AI & Automation' },
+    ui: { primaryNavigation: 'Primary navigation', goHome: 'Go to home', openMenu: 'Open navigation menu', closeMenu: 'Close navigation menu', architectureFlow: 'Software architecture flow', builtWith: 'Built with React', problem: 'Problem', solution: 'Solution', architecture: 'Architecture', githubPending: 'GitHub pending', demoPending: 'Live demo pending', viewProject: 'View project', assistantPreview: 'Portfolio Assistant', askAbout: 'Ask about projects, stack, architecture and AI integration. Answers are limited to confirmed portfolio content.', aiLabel: 'AI & Automation', cleanArchitecture: 'Clean Architecture', projectDataPending: 'Project data pending' },
+    categories: { Backend: 'Backend', Frontend: 'Frontend', Databases: 'Databases', Infrastructure: 'Infrastructure', Architecture: 'Architecture', 'AI & Automation': 'AI & Automation' },
     assistant: {
       toggle: 'Ask Diego AI',
       close: 'Close AI assistant',

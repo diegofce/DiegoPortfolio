@@ -26,19 +26,19 @@ const navItems = [
 ];
 
 const assistantPrompts = [
-  "What is Diego's stack?",
-  'Tell me about BookingSaaS.',
-  'How does Diego use AI?',
-  'What projects has Diego built?',
+  '¿Cuál es el stack de Diego?',
+  'Cuéntame sobre BookingSaaS.',
+  '¿Cómo usa Diego la IA?',
+  '¿Qué proyectos ha construido Diego?',
 ];
 
 const stackDescriptions = {
-  Backend: 'APIs, business logic and services built to evolve.',
-  Frontend: 'Clear interfaces that keep product behavior visible.',
-  Databases: 'Reliable persistence for structured application data.',
-  Infrastructure: 'The tooling that keeps delivery repeatable.',
-  Architecture: 'Boundaries that make systems easier to change.',
-  'AI & Automation': 'Practical intelligence connected to real workflows.',
+  Backend: 'APIs, lógica de negocio y servicios preparados para evolucionar.',
+  Frontend: 'Interfaces claras que mantienen visible el comportamiento del producto.',
+  Databases: 'Persistencia confiable para datos estructurados de la aplicación.',
+  Infrastructure: 'Herramientas que mantienen repetible la entrega.',
+  Architecture: 'Límites que hacen más sencillo cambiar los sistemas.',
+  'AI & Automation': 'Inteligencia práctica conectada a flujos reales.',
 };
 
 const stackSymbols = {
@@ -53,38 +53,38 @@ const stackSymbols = {
 const principleCards = [
   {
     number: '01',
-    title: 'Business Logic',
-    text: 'Understanding the problem before writing the code.',
+    title: 'Lógica de negocio',
+    text: 'Entender el problema antes de escribir código.',
   },
   {
     number: '02',
-    title: 'Architecture',
-    text: 'Clear responsibilities, maintainable systems and well-defined APIs.',
+    title: 'Arquitectura',
+    text: 'Responsabilidades claras, sistemas mantenibles y APIs bien definidas.',
   },
   {
     number: '03',
-    title: 'AI Integration',
-    text: 'Using AI as an engineering tool for research, debugging, automation and delivery.',
+    title: 'Integración de IA',
+    text: 'Usar IA como herramienta de ingeniería para investigar, depurar, automatizar y entregar.',
   },
 ];
 
 const buildLayers = [
-  ['01', 'Interface', 'React / TypeScript', 'The surface people use.'],
-  ['02', 'API', 'REST / JWT', 'A clear contract between systems.'],
+  ['01', 'Interfaz', 'React / TypeScript', 'La superficie que usan las personas.'],
+  ['02', 'API', 'REST / JWT', 'Un contrato claro entre sistemas.'],
   [
     '03',
-    'Business Logic',
+    'Lógica de negocio',
     'FastAPI / Django',
-    'Rules that make the product useful.',
+    'Reglas que hacen útil al producto.',
   ],
-  ['04', 'Data', 'PostgreSQL / SQL', 'State that can be trusted.'],
+  ['04', 'Datos', 'PostgreSQL / SQL', 'Estado en el que se puede confiar.'],
   [
     '05',
-    'Infrastructure',
+    'Infraestructura',
     'Redis / Docker',
-    'Reliable delivery and async work.',
+    'Entrega confiable y trabajo asíncrono.',
   ],
-  ['06', 'Intelligence', 'AI APIs', 'Automation connected to purpose.'],
+  ['06', 'Inteligencia', 'AI APIs', 'Automatización conectada a un propósito.'],
 ];
 
 function BrandMark({ className = '' }) {
@@ -289,11 +289,11 @@ function createAssistantAnswer(message) {
     query.includes('tech') ||
     query.includes('technolog')
   ) {
-    return 'Diego works mainly with Python, FastAPI, Django REST Framework, React, TypeScript, PostgreSQL, Redis, Celery, Docker, REST APIs, JWT, OAuth2 and AI API integrations.';
+    return 'Diego trabaja principalmente con Python, FastAPI, Django REST Framework, React, TypeScript, PostgreSQL, Redis, Celery, Docker, APIs REST, JWT, OAuth2 e integraciones con APIs de IA.';
   }
 
   if (query.includes('booking')) {
-    return 'BookingSaaS is documented as a SaaS reservation system using FastAPI, React, PostgreSQL, Celery, Redis and JWT. The confirmed scope includes scalable backend architecture, role-based authentication, multi-tenant logic, conflict prevention and async notifications.';
+    return 'BookingSaaS es un sistema SaaS de reservas con FastAPI, React, PostgreSQL, Celery, Redis y JWT. Incluye arquitectura backend escalable, autenticación por roles, lógica multiinquilino, prevención de conflictos y notificaciones asíncronas.';
   }
 
   if (
@@ -302,11 +302,11 @@ function createAssistantAnswer(message) {
     query.includes('codex') ||
     query.includes('claude')
   ) {
-    return 'Diego positions AI as an integration and productivity layer: AI API integrations, prompt engineering, AI-assisted development, Codex, Claude Code and automation workflows. The portfolio does not claim unsupported AI expertise.';
+    return 'Diego entiende la IA como una capa de integración y productividad: APIs de IA, prompt engineering, desarrollo asistido, Codex, Claude Code y flujos de automatización.';
   }
 
   if (query.includes('project') || query.includes('teamsalud')) {
-    return 'The portfolio currently features TeamSalud, BookingSaaS and a prepared AI Integration Project slot, plus three additional placeholders for future real projects. Project links are intentionally pending until real repositories or demos are provided.';
+    return 'El portafolio presenta TeamSalud, BookingSaaS y un espacio para un proyecto de integración con IA, además de tres proyectos preparados para el futuro.';
   }
 
   if (
@@ -314,10 +314,10 @@ function createAssistantAnswer(message) {
     query.includes('sena') ||
     query.includes('bootcamp')
   ) {
-    return 'Education shown in the portfolio: Corporación Universitaria Iberoamericana · Ingeniería de Software en curso, SENA · Tecnólogo ADSO, and DevSenior-Code Bootcamp · Full Stack Python Senior.';
+    return 'La formación incluye Ingeniería de Software en curso en la Corporación Universitaria Iberoamericana, Tecnólogo ADSO del SENA y Full Stack Python Senior en DevSenior-Code Bootcamp.';
   }
 
-  return "That information is not available in Diego's portfolio yet.";
+  return 'Esa información todavía no está disponible en el portafolio de Diego.';
 }
 
 function Navbar() {
@@ -722,11 +722,11 @@ function Hero() {
 function About() {
   const { t } = useLanguage();
   const pathItems = [
-    ['Healthcare', 'Real processes'],
-    ['Software', 'Product logic'],
-    ['Backend', 'APIs and auth'],
-    ['Full Stack', 'Clear interfaces'],
-    ['AI Integration', 'Automation layer'],
+    ['Healthcare', 'Procesos reales'],
+    ['Software', 'Lógica de producto'],
+    ['Backend', 'APIs y autenticación'],
+    ['Full Stack', 'Interfaces claras'],
+    ['AI Integration', 'Capa de automatización'],
   ];
 
   return (
@@ -839,7 +839,7 @@ function TechStack() {
                       : 'node'
               }
             />
-            <h3>{category}</h3>
+            <h3>{t(`categories.${category}`)}</h3>
             <p>{stackDescriptions[category]}</p>
             <div>
               {technologies
@@ -942,6 +942,11 @@ function ProjectPreview({ project }) {
 
 function ProjectCard({ project, index }) {
   const { t } = useLanguage();
+  const displayProjectValue = (value) => {
+    if (value === 'Clean Architecture') return t('ui.cleanArchitecture');
+    if (value === 'Project data pending') return t('ui.projectDataPending');
+    return value;
+  };
   const hasLinks = project.github || project.demo;
 
   return (
@@ -957,9 +962,9 @@ function ProjectCard({ project, index }) {
         <h3>{project.title}</h3>
         <p>{project.description}</p>
         <div className="project-meta">
-          <span>{project.status}</span>
+          <span>{displayProjectValue(project.status)}</span>
           {project.stack.map((item) => (
-            <span key={item}>{item}</span>
+            <span key={item}>{displayProjectValue(item)}</span>
           ))}
         </div>
         <details>
@@ -973,7 +978,7 @@ function ProjectCard({ project, index }) {
             </p>
             {project.architecture && (
               <p>
-                <strong>{t('ui.architecture')}:</strong> {project.architecture}
+                <strong>{t('ui.architecture')}:</strong> {displayProjectValue(project.architecture)}
               </p>
             )}
           </div>
