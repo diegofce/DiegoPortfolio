@@ -166,13 +166,16 @@ body {
   position: fixed;
   top: -7px;
   left: -7px;
-  z-index: 100;
-  width: 14px;
-  height: 14px;
-  border: 1px solid var(--accent);
+  z-index: 1000;
+  width: 16px;
+  height: 16px;
+  border: 2px solid var(--accent);
   border-radius: 50%;
   background: radial-gradient(circle, var(--accent) 0 2px, transparent 3px);
-  box-shadow: 0 0 22px rgba(143, 184, 255, 0.58);
+  box-shadow:
+    0 0 14px rgba(143, 184, 255, 0.86),
+    0 0 38px rgba(143, 184, 255, 0.56),
+    0 0 72px rgba(143, 184, 255, 0.24);
   pointer-events: none;
   transition:
     width 180ms ease,
@@ -183,11 +186,15 @@ body {
 }
 
 .custom-cursor.is-interactive {
-  top: -10px;
-  left: -10px;
-  width: 20px;
-  height: 20px;
-  box-shadow: 0 0 30px rgba(143, 184, 255, 0.76);
+  top: -13px;
+  left: -13px;
+  width: 26px;
+  height: 26px;
+  border-color: var(--success);
+  box-shadow:
+    0 0 18px rgba(121, 214, 163, 0.92),
+    0 0 46px rgba(143, 184, 255, 0.7),
+    0 0 86px rgba(143, 184, 255, 0.3);
 }
 
 body::before {

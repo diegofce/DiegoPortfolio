@@ -2,12 +2,12 @@ import { useEffect, useRef, useState } from 'react';
 import './App.css';
 import cvFile from './assets/cvPy.pdf';
 import profilePhoto from './assets/foto-perfil.jpeg';
+import { useLanguage } from './common/LanguageContext';
+import { useTheme } from './common/ThemeContext';
 import { education } from './data/education';
 import { profile, socialLinks } from './data/profile';
 import { projects } from './data/projects';
 import { technologies } from './data/technologies';
-import { useLanguage } from './common/LanguageContext';
-import { useTheme } from './common/ThemeContext';
 
 const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
   eager: true,
@@ -16,9 +16,12 @@ const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
 });
 
 const navItems = [
-  { key: 'home', href: '#home' }, { key: 'about', href: '#about' },
-  { key: 'stack', href: '#stack' }, { key: 'projects', href: '#projects' },
-  { key: 'build', href: '#build' }, { key: 'education', href: '#education' },
+  { key: 'home', href: '#home' },
+  { key: 'about', href: '#about' },
+  { key: 'stack', href: '#stack' },
+  { key: 'projects', href: '#projects' },
+  { key: 'build', href: '#build' },
+  { key: 'education', href: '#education' },
   { key: 'contact', href: '#contact' },
 ];
 
@@ -91,7 +94,10 @@ function BrandMark({ className = '' }) {
       viewBox="0 0 48 48"
       aria-hidden="true"
     >
-      <path className="brand-mark-bracket" d="m18 8-10 16 10 16M30 8l10 16-10 16" />
+      <path
+        className="brand-mark-bracket"
+        d="m18 8-10 16 10 16M30 8l10 16-10 16"
+      />
       <path className="brand-mark-bridge" d="M19 24h10" />
       <circle className="brand-mark-accent" cx="24" cy="24" r="4" />
       <path className="brand-mark-success" d="M24 10v6M24 32v6" />
@@ -352,10 +358,20 @@ function Navbar() {
       <a className="nav-cv" href={cvFile} download>
         {t('actions.downloadCv')}
       </a>
-      <button className="language-toggle" type="button" onClick={toggleLanguage} aria-label={t('language.switch')}>
+      <button
+        className="language-toggle"
+        type="button"
+        onClick={toggleLanguage}
+        aria-label={t('language.switch')}
+      >
         {language.toUpperCase()}
       </button>
-      <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Cambiar tema">
+      <button
+        className="theme-toggle"
+        type="button"
+        onClick={toggleTheme}
+        aria-label="Cambiar tema"
+      >
         <LineIcon type={theme === 'dark' ? 'spark' : 'circle'} />
       </button>
       <button
@@ -382,10 +398,20 @@ function Navbar() {
         <a href={cvFile} download onClick={() => setIsOpen(false)}>
           {t('actions.downloadCv')}
         </a>
-        <button className="language-toggle" type="button" onClick={toggleLanguage} aria-label={t('language.switch')}>
+        <button
+          className="language-toggle"
+          type="button"
+          onClick={toggleLanguage}
+          aria-label={t('language.switch')}
+        >
           {language.toUpperCase()}
         </button>
-        <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Cambiar tema">
+        <button
+          className="theme-toggle"
+          type="button"
+          onClick={toggleTheme}
+          aria-label="Cambiar tema"
+        >
           <LineIcon type={theme === 'dark' ? 'spark' : 'circle'} />
         </button>
       </div>
@@ -595,12 +621,14 @@ function CustomCursor() {
     const updateInteractive = (event) => {
       cursorRef.current?.classList.toggle(
         'is-interactive',
-        Boolean(event.target.closest('a, button, summary, input, .project-card')),
+        Boolean(
+          event.target.closest('a, button, summary, input, .project-card'),
+        ),
       );
     };
     const render = () => {
-      position.x += (target.x - position.x) * 0.16;
-      position.y += (target.y - position.y) * 0.16;
+      position.x += (target.x - position.x) * 0.22;
+      position.y += (target.y - position.y) * 0.22;
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
       }
@@ -608,7 +636,9 @@ function CustomCursor() {
     };
 
     document.addEventListener('pointermove', move, { passive: true });
-    document.addEventListener('pointerover', updateInteractive, { passive: true });
+    document.addEventListener('pointerover', updateInteractive, {
+      passive: true,
+    });
     render();
     return () => {
       window.cancelAnimationFrame(frame);
