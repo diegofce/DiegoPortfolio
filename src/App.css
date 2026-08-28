@@ -259,6 +259,7 @@ main {
   display: grid;
   grid-template-columns: auto minmax(0, 1fr) auto auto auto auto;
   align-items: center;
+  gap: 8px;
   width: min(var(--container), calc(100% - 32px));
   min-height: 56px;
   padding: 8px;
@@ -511,6 +512,7 @@ main {
 
 .hero-actions {
   margin-top: 32px;
+  align-items: center;
 }
 
 .button,
@@ -1362,6 +1364,10 @@ main {
   .hero-actions .button,
   .contact-links a {
     width: 100%;
+  }
+
+  .hero-actions {
+    gap: 10px;
   }
 
   .portrait-frame {
