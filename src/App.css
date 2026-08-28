@@ -201,6 +201,24 @@ main {
   color: var(--accent-strong);
 }
 
+.language-toggle {
+  min-width: 44px;
+  min-height: 44px;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  background: var(--surface-soft);
+  color: var(--accent-strong);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+  cursor: pointer;
+  transition: background var(--transition-fast), border-color var(--transition-fast);
+}
+
+.language-toggle:hover {
+  border-color: var(--accent);
+  background: var(--surface-strong);
+}
+
 .menu-toggle {
   display: none;
   width: 42px;

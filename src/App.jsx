@@ -6,6 +6,7 @@ import { education } from './data/education';
 import { profile, socialLinks } from './data/profile';
 import { projects } from './data/projects';
 import { technologies } from './data/technologies';
+import { useLanguage } from './common/LanguageContext';
 
 const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
   eager: true,
@@ -14,13 +15,10 @@ const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
 });
 
 const navItems = [
-  { label: 'Home', href: '#home' },
-  { label: 'About', href: '#about' },
-  { label: 'Stack', href: '#stack' },
-  { label: 'Projects', href: '#projects' },
-  { label: 'How I Build', href: '#build' },
-  { label: 'Education', href: '#education' },
-  { label: 'Contact', href: '#contact' },
+  { key: 'home', href: '#home' }, { key: 'about', href: '#about' },
+  { key: 'stack', href: '#stack' }, { key: 'projects', href: '#projects' },
+  { key: 'build', href: '#build' }, { key: 'education', href: '#education' },
+  { key: 'contact', href: '#contact' },
 ];
 
 const assistantPrompts = [
@@ -315,6 +313,7 @@ function createAssistantAnswer(message) {
 }
 
 function Navbar() {
+  const { language, t, toggleLanguage } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -343,13 +342,16 @@ function Navbar() {
       <nav className="desktop-nav" aria-label="Primary navigation">
         {navItems.map((item) => (
           <a key={item.href} href={item.href}>
-            {item.label}
+            {t(`nav.${item.key}`)}
           </a>
         ))}
       </nav>
       <a className="nav-cv" href={cvFile} download>
-        Download CV
+        {t('actions.downloadCv')}
       </a>
+      <button className="language-toggle" type="button" onClick={toggleLanguage} aria-label={t('language.switch')}>
+        {language.toUpperCase()}
+      </button>
       <button
         className="menu-toggle"
         type="button"
@@ -368,12 +370,15 @@ function Navbar() {
       >
         {navItems.map((item) => (
           <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
-            {item.label}
+            {t(`nav.${item.key}`)}
           </a>
         ))}
         <a href={cvFile} download onClick={() => setIsOpen(false)}>
-          Download CV
+          {t('actions.downloadCv')}
         </a>
+        <button className="language-toggle" type="button" onClick={toggleLanguage} aria-label={t('language.switch')}>
+          {language.toUpperCase()}
+        </button>
       </div>
     </header>
   );
@@ -570,11 +575,12 @@ function SectionHeading({ eyebrow, title, children }) {
 }
 
 function Hero() {
+  const { t } = useLanguage();
   return (
     <section className="hero" id="home">
       <div className="hero-inner section-shell">
         <div className="hero-content reveal">
-          <p className="status-dot">Open to opportunities</p>
+          <p className="status-dot">{t('labels.open')}</p>
           <h1>Diego Chacón</h1>
           <p className="hero-role">Software Developer</p>
           <p className="hero-tags">Backend · Full Stack · AI Integration</p>
@@ -626,6 +632,7 @@ function Hero() {
 }
 
 function About() {
+  const { t } = useLanguage();
   const pathItems = [
     ['Healthcare', 'Real processes'],
     ['Software', 'Product logic'],
@@ -637,7 +644,7 @@ function About() {
   return (
     <section className="section-shell about-section reveal" id="about">
       <div className="about-intro">
-        <p className="eyebrow">About Me</p>
+        <p className="eyebrow">{t('labels.about')}</p>
         <h2>Backend thinking. Full-stack execution.</h2>
         <p>
           Desarrollo sistemas web con foco en APIs, autenticación, lógica de
@@ -699,7 +706,7 @@ function About() {
         <span className="status-line">Based in {profile.location}</span>
         <strong>{profile.role}</strong>
         <span>{profile.focus}</span>
-        <span className="status-line is-open">Open to opportunities</span>
+        <span className="status-line is-open">{t('labels.open')}</span>
       </aside>
     </section>
   );
@@ -906,6 +913,7 @@ function ProjectCard({ project, index }) {
 }
 
 function Projects() {
+  const { t } = useLanguage();
   const featured = projects.filter((project) => project.featured);
   const additional = projects.filter((project) => !project.featured);
 
@@ -916,7 +924,7 @@ function Projects() {
         espacio preparado para próximos casos de integración con IA.
       </SectionHeading>
       <div className="project-group">
-        <h3>Featured Projects</h3>
+        <h3>{t('labels.featured')}</h3>
         <div className="projects-grid featured-grid">
           {featured.map((project, index) => (
             <ProjectCard key={project.title} project={project} index={index} />
@@ -924,7 +932,7 @@ function Projects() {
         </div>
       </div>
       <div className="project-group">
-        <h3>Additional Projects</h3>
+        <h3>{t('labels.additional')}</h3>
         <div className="projects-grid">
           {additional.map((project, index) => (
             <ProjectCard
@@ -1107,12 +1115,13 @@ function Contact() {
 }
 
 function AssistantWidget() {
+  const { t } = useLanguage();
   const [isOpen, setIsOpen] = useState(false);
   const [input, setInput] = useState('');
   const [messages, setMessages] = useState([
     {
       role: 'assistant',
-      text: "Hi, I'm Diego's AI assistant. Ask me about Diego's stack, projects or technical background.",
+      text: t('assistant.intro'),
     },
   ]);
 
@@ -1148,22 +1157,22 @@ function AssistantWidget() {
         aria-controls="assistant-panel"
         onClick={() => setIsOpen((value) => !value)}
       >
-        Ask Diego AI
+        {t('assistant.toggle')}
       </button>
       <section
         id="assistant-panel"
         className={isOpen ? 'assistant-panel is-open' : 'assistant-panel'}
-        aria-label="Ask Diego AI assistant"
+        aria-label={t('assistant.label')}
         aria-hidden={!isOpen}
       >
         <div className="assistant-header">
           <div>
             <span>Portfolio AI</span>
-            <h2>Ask Diego AI</h2>
+            <h2>{t('assistant.toggle')}</h2>
           </div>
           <button
             type="button"
-            aria-label="Close AI assistant"
+            aria-label={t('assistant.close')}
             onClick={() => setIsOpen(false)}
           >
             ×
@@ -1197,17 +1206,17 @@ function AssistantWidget() {
             ask(input);
           }}
         >
-          <label htmlFor="assistant-input">Ask about Diego</label>
+          <label htmlFor="assistant-input">{t('assistant.inputLabel')}</label>
           <div>
             <input
               id="assistant-input"
               value={input}
               maxLength="240"
               onChange={(event) => setInput(event.target.value)}
-              placeholder="Ask about stack, projects, AI..."
+              placeholder={t('assistant.placeholder')}
             />
             <button type="submit" disabled={!input.trim()}>
-              Ask
+              {t('assistant.submit')}
             </button>
           </div>
         </form>
@@ -1217,6 +1226,7 @@ function AssistantWidget() {
 }
 
 function Footer() {
+  const { t } = useLanguage();
   const connectItems = [
     ['GitHub', socialLinks.github, 'github'],
     ['LinkedIn', socialLinks.linkedin, 'linkedin'],
@@ -1233,14 +1243,14 @@ function Footer() {
         <h2>{profile.shortName}</h2>
         <p>{profile.role}</p>
         <p>{profile.focus}</p>
-        <span className="status-line is-open">Open to opportunities</span>
+        <span className="status-line is-open">{t('labels.open')}</span>
         <span className="footer-location">{profile.location}</span>
       </div>
       <div>
         <h3>Navigation</h3>
         {navItems.map((item) => (
           <a key={item.href} href={item.href}>
-            {item.label}
+            {t(`nav.${item.key}`)}
           </a>
         ))}
       </div>
