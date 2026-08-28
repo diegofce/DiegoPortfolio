@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630">
+  <rect width="1200" height="630" fill="#07090f"/>
+  <path d="m340 145-105 170 105 170M860 145l105 170-105 170M350 315h500" fill="none" stroke="#dbe8ff" stroke-linecap="round" stroke-linejoin="round" stroke-width="18"/>
+  <circle cx="600" cy="315" r="52" fill="#8fb8ff"/>
+  <path d="M600 175v70M600 385v70" stroke="#79d6a3" stroke-linecap="round" stroke-width="18"/>
+  <text x="600" y="565" fill="#eef4ff" font-family="Arial, sans-serif" font-size="42" text-anchor="middle">Diego Chacon · Software Developer</text>
+</svg>
