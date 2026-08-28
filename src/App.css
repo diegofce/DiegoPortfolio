@@ -38,6 +38,36 @@
   --font-mono: 'Roboto Mono', 'SFMono-Regular', Consolas, monospace;
 }
 
+:root,
+body,
+.site-header,
+.site-footer,
+.project-card,
+.stack-category,
+.about-visual,
+.contact-visual,
+.assistant-panel {
+  transition: background-color var(--transition-normal), color var(--transition-normal), border-color var(--transition-normal);
+}
+
+:root[data-theme='light'] {
+  color-scheme: light;
+  --bg: #f4f7fb;
+  --bg-2: #e9eef5;
+  --surface: #ffffff;
+  --surface-soft: rgba(18, 35, 58, 0.055);
+  --surface-strong: rgba(18, 35, 58, 0.1);
+  --text: #142235;
+  --muted: #4b5d73;
+  --subtle: #65758a;
+  --accent: #2866b2;
+  --accent-strong: #16477f;
+  --success: #16734b;
+  --line: rgba(20, 34, 53, 0.16);
+  --line-strong: rgba(20, 34, 53, 0.28);
+  --shadow: 0 24px 70px rgba(28, 48, 76, 0.16);
+}
+
 * {
   box-sizing: border-box;
 }
@@ -217,6 +247,23 @@ main {
 .language-toggle:hover {
   border-color: var(--accent);
   background: var(--surface-strong);
+}
+
+.theme-toggle {
+  display: grid;
+  width: 44px;
+  height: 44px;
+  place-items: center;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  background: var(--surface-soft);
+  color: var(--accent);
+  cursor: pointer;
+}
+
+.theme-toggle .line-icon {
+  width: 19px;
+  height: 19px;
 }
 
 .menu-toggle {

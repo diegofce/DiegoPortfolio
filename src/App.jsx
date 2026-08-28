@@ -7,6 +7,7 @@ import { profile, socialLinks } from './data/profile';
 import { projects } from './data/projects';
 import { technologies } from './data/technologies';
 import { useLanguage } from './common/LanguageContext';
+import { useTheme } from './common/ThemeContext';
 
 const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
   eager: true,
@@ -181,6 +182,7 @@ function LineIcon({ type = 'node' }) {
         <path d="m9 7-5 5 5 5M15 7l5 5-5 5M13 5l-2 14" />
       </>
     ),
+    circle: <circle cx="12" cy="12" r="7" />,
   };
   return (
     <svg className="line-icon" viewBox="0 0 24 24" aria-hidden="true">
@@ -314,6 +316,7 @@ function createAssistantAnswer(message) {
 
 function Navbar() {
   const { language, t, toggleLanguage } = useLanguage();
+  const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
 
@@ -352,6 +355,9 @@ function Navbar() {
       <button className="language-toggle" type="button" onClick={toggleLanguage} aria-label={t('language.switch')}>
         {language.toUpperCase()}
       </button>
+      <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Cambiar tema">
+        <LineIcon type={theme === 'dark' ? 'spark' : 'circle'} />
+      </button>
       <button
         className="menu-toggle"
         type="button"
@@ -378,6 +384,9 @@ function Navbar() {
         </a>
         <button className="language-toggle" type="button" onClick={toggleLanguage} aria-label={t('language.switch')}>
           {language.toUpperCase()}
+        </button>
+        <button className="theme-toggle" type="button" onClick={toggleTheme} aria-label="Cambiar tema">
+          <LineIcon type={theme === 'dark' ? 'spark' : 'circle'} />
         </button>
       </div>
     </header>
