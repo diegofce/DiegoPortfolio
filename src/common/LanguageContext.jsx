@@ -15,10 +15,18 @@ export function LanguageProvider({ children }) {
     document.documentElement.lang = language;
   }, [language]);
 
-  const t = (path) => path.split('.').reduce((value, key) => value?.[key], translations[language]) ?? path;
-  const toggleLanguage = () => setLanguage((current) => (current === 'es' ? 'en' : 'es'));
+  const t = (path) =>
+    path
+      .split('.')
+      .reduce((value, key) => value?.[key], translations[language]) ?? path;
+  const toggleLanguage = () =>
+    setLanguage((current) => (current === 'es' ? 'en' : 'es'));
 
-  return <LanguageContext.Provider value={{ language, t, toggleLanguage }}>{children}</LanguageContext.Provider>;
+  return (
+    <LanguageContext.Provider value={{ language, t, toggleLanguage }}>
+      {children}
+    </LanguageContext.Provider>
+  );
 }
 
 export const useLanguage = () => useContext(LanguageContext);

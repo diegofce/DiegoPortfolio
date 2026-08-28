@@ -104,8 +104,16 @@ body {
 
 :root[data-theme='light'] body {
   background:
-    radial-gradient(circle at 16% 8%, rgba(41, 107, 174, 0.12), transparent 28rem),
-    radial-gradient(circle at 86% 2%, rgba(23, 128, 91, 0.08), transparent 30rem),
+    radial-gradient(
+      circle at 16% 8%,
+      rgba(41, 107, 174, 0.12),
+      transparent 28rem
+    ),
+    radial-gradient(
+      circle at 86% 2%,
+      rgba(23, 128, 91, 0.08),
+      transparent 30rem
+    ),
     linear-gradient(180deg, #ffffff 0%, var(--bg) 42%, #eef3f8 100%);
 }
 
@@ -150,11 +158,15 @@ body {
 :root[data-theme='light'] .assistant-form button {
   color: #ffffff;
   background: var(--accent-strong);
-  box-shadow: 0 12px 32px rgba(14, 66, 125, 0.22), inset 0 1px 0 rgba(255, 255, 255, 0.3);
+  box-shadow:
+    0 12px 32px rgba(14, 66, 125, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.3);
 }
 
 :root[data-theme='light'] .custom-cursor {
-  box-shadow: 0 0 20px rgba(21, 92, 168, 0.72), 0 0 42px rgba(21, 92, 168, 0.34);
+  box-shadow:
+    0 0 20px rgba(21, 92, 168, 0.72),
+    0 0 42px rgba(21, 92, 168, 0.34);
 }
 
 .custom-cursor-enabled body,

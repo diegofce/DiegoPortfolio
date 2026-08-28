@@ -34,8 +34,10 @@ const assistantPrompts = [
 
 const stackDescriptions = {
   Backend: 'APIs, lógica de negocio y servicios preparados para evolucionar.',
-  Frontend: 'Interfaces claras que mantienen visible el comportamiento del producto.',
-  Databases: 'Persistencia confiable para datos estructurados de la aplicación.',
+  Frontend:
+    'Interfaces claras que mantienen visible el comportamiento del producto.',
+  Databases:
+    'Persistencia confiable para datos estructurados de la aplicación.',
   Infrastructure: 'Herramientas que mantienen repetible la entrega.',
   Architecture: 'Límites que hacen más sencillo cambiar los sistemas.',
   'AI & Automation': 'Inteligencia práctica conectada a flujos reales.',
@@ -69,7 +71,12 @@ const principleCards = [
 ];
 
 const buildLayers = [
-  ['01', 'Interfaz', 'React / TypeScript', 'La superficie que usan las personas.'],
+  [
+    '01',
+    'Interfaz',
+    'React / TypeScript',
+    'La superficie que usan las personas.',
+  ],
   ['02', 'API', 'REST / JWT', 'Un contrato claro entre sistemas.'],
   [
     '03',
@@ -974,11 +981,12 @@ function ProjectCard({ project, index }) {
               <strong>{t('ui.problem')}:</strong> {project.problem}
             </p>
             <p>
-                <strong>{t('ui.solution')}:</strong> {project.solution}
+              <strong>{t('ui.solution')}:</strong> {project.solution}
             </p>
             {project.architecture && (
               <p>
-                <strong>{t('ui.architecture')}:</strong> {displayProjectValue(project.architecture)}
+                <strong>{t('ui.architecture')}:</strong>{' '}
+                {displayProjectValue(project.architecture)}
               </p>
             )}
           </div>
@@ -1014,7 +1022,10 @@ function Projects() {
 
   return (
     <section className="section-shell reveal" id="projects">
-      <SectionHeading eyebrow={t('labels.projects')} title={t('headings.projectsTitle')}>
+      <SectionHeading
+        eyebrow={t('labels.projects')}
+        title={t('headings.projectsTitle')}
+      >
         Una muestra enfocada: proyectos principales, proyectos secundarios y
         espacio preparado para próximos casos de integración con IA.
       </SectionHeading>
@@ -1054,10 +1065,7 @@ function HowIBuild() {
         responsabilidades claras, APIs bien definidas y una arquitectura que
         pueda evolucionar.
       </SectionHeading>
-      <div
-        className="architecture-board"
-        aria-label={t('ui.architectureFlow')}
-      >
+      <div className="architecture-board" aria-label={t('ui.architectureFlow')}>
         <div className="architecture-spine" />
         {buildLayers.map(([number, title, tools, text]) => (
           <article className="build-layer" key={number}>
