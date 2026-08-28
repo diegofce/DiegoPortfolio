@@ -257,7 +257,7 @@ main {
   left: 50%;
   z-index: 30;
   display: grid;
-  grid-template-columns: auto 1fr auto auto;
+  grid-template-columns: auto minmax(0, 1fr) auto auto auto auto;
   align-items: center;
   width: min(var(--container), calc(100% - 32px));
   min-height: 56px;
@@ -1255,6 +1255,11 @@ main {
     grid-template-columns: auto 1fr auto;
   }
 
+  .site-header > .language-toggle,
+  .site-header > .theme-toggle {
+    display: none;
+  }
+
   .menu-toggle {
     display: block;
     grid-column: 3;
@@ -1288,6 +1293,17 @@ main {
 
   .mobile-nav a {
     padding: 13px 16px;
+  }
+
+  .mobile-nav .language-toggle,
+  .mobile-nav .theme-toggle {
+    width: 100%;
+    min-height: 44px;
+    border-radius: 999px;
+  }
+
+  .mobile-nav .theme-toggle {
+    height: 44px;
   }
 
   .about-grid,
@@ -2544,5 +2560,22 @@ main {
 
   .tech-pill {
     min-width: 144px;
+  }
+}
+
+@media (max-width: 980px) {
+  .site-header > .language-toggle,
+  .site-header > .theme-toggle {
+    display: none !important;
+  }
+
+  .site-header {
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
+    column-gap: 8px;
+  }
+
+  .menu-toggle {
+    display: block !important;
+    grid-column: 3;
   }
 }

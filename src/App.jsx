@@ -344,11 +344,11 @@ function Navbar() {
 
   return (
     <header className={scrolled ? 'site-header is-scrolled' : 'site-header'}>
-      <a className="brand" href="#home" aria-label="Go to home">
+      <a className="brand" href="#home" aria-label={t('ui.goHome')}>
         <BrandMark />
         <span>Diego Chacón</span>
       </a>
-      <nav className="desktop-nav" aria-label="Primary navigation">
+      <nav className="desktop-nav" aria-label={t('ui.primaryNavigation')}>
         {navItems.map((item) => (
           <a key={item.href} href={item.href}>
             {t(`nav.${item.key}`)}
@@ -370,14 +370,14 @@ function Navbar() {
         className="theme-toggle"
         type="button"
         onClick={toggleTheme}
-        aria-label="Cambiar tema"
+        aria-label={t('theme.switch')}
       >
         <LineIcon type={theme === 'dark' ? 'spark' : 'circle'} />
       </button>
       <button
         className="menu-toggle"
         type="button"
-        aria-label={isOpen ? 'Close navigation menu' : 'Open navigation menu'}
+        aria-label={isOpen ? t('ui.closeMenu') : t('ui.openMenu')}
         aria-expanded={isOpen}
         aria-controls="mobile-navigation"
         onClick={() => setIsOpen((value) => !value)}
@@ -410,7 +410,7 @@ function Navbar() {
           className="theme-toggle"
           type="button"
           onClick={toggleTheme}
-          aria-label="Cambiar tema"
+          aria-label={t('theme.switch')}
         >
           <LineIcon type={theme === 'dark' ? 'spark' : 'circle'} />
         </button>
@@ -733,7 +733,7 @@ function About() {
     <section className="section-shell about-section reveal" id="about">
       <div className="about-intro">
         <p className="eyebrow">{t('labels.about')}</p>
-        <h2>Backend thinking. Full-stack execution.</h2>
+        <h2>{t('headings.aboutTitle')}</h2>
         <p>
           Desarrollo sistemas web con foco en APIs, autenticación, lógica de
           negocio, arquitectura y experiencias frontend claras.
@@ -801,6 +801,7 @@ function About() {
 }
 
 function TechStack() {
+  const { t } = useLanguage();
   const loop = [...technologies, ...technologies];
   const categories = [
     'Backend',
@@ -814,8 +815,8 @@ function TechStack() {
   return (
     <section className="section-shell reveal" id="stack">
       <SectionHeading
-        eyebrow="Tech Stack"
-        title="Tools for APIs, products and AI workflows"
+        eyebrow={t('labels.tech')}
+        title={t('headings.techTitle')}
       >
         Tecnologías organizadas por el tipo de problema que ayudan a resolver.
       </SectionHeading>
@@ -940,6 +941,7 @@ function ProjectPreview({ project }) {
 }
 
 function ProjectCard({ project, index }) {
+  const { t } = useLanguage();
   const hasLinks = project.github || project.demo;
 
   return (
@@ -961,17 +963,17 @@ function ProjectCard({ project, index }) {
           ))}
         </div>
         <details>
-          <summary>View Project</summary>
+          <summary>{t('ui.viewProject')}</summary>
           <div className="project-details">
             <p>
-              <strong>Problem:</strong> {project.problem}
+              <strong>{t('ui.problem')}:</strong> {project.problem}
             </p>
             <p>
-              <strong>Solution:</strong> {project.solution}
+                <strong>{t('ui.solution')}:</strong> {project.solution}
             </p>
             {project.architecture && (
               <p>
-                <strong>Architecture:</strong> {project.architecture}
+                <strong>{t('ui.architecture')}:</strong> {project.architecture}
               </p>
             )}
           </div>
@@ -982,14 +984,14 @@ function ProjectCard({ project, index }) {
               GitHub
             </a>
           ) : (
-            <span aria-disabled="true">GitHub pending</span>
+            <span aria-disabled="true">{t('ui.githubPending')}</span>
           )}
           {project.demo ? (
             <a href={project.demo} target="_blank" rel="noreferrer">
               Live Demo
             </a>
           ) : (
-            <span aria-disabled="true">Live demo pending</span>
+            <span aria-disabled="true">{t('ui.demoPending')}</span>
           )}
           {!hasLinks && (
             <span aria-disabled="true">Links will be added when available</span>
@@ -1007,7 +1009,7 @@ function Projects() {
 
   return (
     <section className="section-shell reveal" id="projects">
-      <SectionHeading eyebrow="Projects" title="Selected engineering work">
+      <SectionHeading eyebrow={t('labels.projects')} title={t('headings.projectsTitle')}>
         Una muestra enfocada: proyectos principales, proyectos secundarios y
         espacio preparado para próximos casos de integración con IA.
       </SectionHeading>
@@ -1036,11 +1038,12 @@ function Projects() {
 }
 
 function HowIBuild() {
+  const { t } = useLanguage();
   return (
     <section className="section-shell reveal" id="build">
       <SectionHeading
-        eyebrow="How I Build"
-        title="From interface to infrastructure"
+        eyebrow={t('labels.build')}
+        title={t('headings.buildTitle')}
       >
         Desde la interfaz hasta la infraestructura, diseño cada capa con
         responsabilidades claras, APIs bien definidas y una arquitectura que
@@ -1048,7 +1051,7 @@ function HowIBuild() {
       </SectionHeading>
       <div
         className="architecture-board"
-        aria-label="Software architecture flow"
+        aria-label={t('ui.architectureFlow')}
       >
         <div className="architecture-spine" />
         {buildLayers.map(([number, title, tools, text]) => (
@@ -1083,11 +1086,12 @@ function HowIBuild() {
 }
 
 function AiSection() {
+  const { t } = useLanguage();
   return (
     <section className="section-shell ai-panel reveal">
       <div>
-        <p className="eyebrow">AI & Automation</p>
-        <h2>AI integration as a practical engineering layer</h2>
+        <p className="eyebrow">{t('ui.aiLabel')}</p>
+        <h2>{t('headings.aiTitle')}</h2>
         <p>
           Trabajo con integraciones de APIs de IA, prompt engineering,
           automatización y desarrollo asistido por herramientas como Codex y
@@ -1098,23 +1102,21 @@ function AiSection() {
         className="assistant-preview"
         aria-label="AI Portfolio Assistant available as a local portfolio assistant"
       >
-        <span>Portfolio Assistant</span>
-        <strong>Ask Diego AI</strong>
-        <p>
-          Ask about projects, stack, architecture and AI integration. Answers
-          are limited to confirmed portfolio content.
-        </p>
+        <span>{t('ui.assistantPreview')}</span>
+        <strong>{t('assistant.toggle')}</strong>
+        <p>{t('ui.askAbout')}</p>
       </div>
     </section>
   );
 }
 
 function Education() {
+  const { t } = useLanguage();
   return (
     <section className="section-shell reveal" id="education">
       <SectionHeading
-        eyebrow="Education"
-        title="Formal training and continued growth"
+        eyebrow={t('labels.education')}
+        title={t('headings.educationTitle')}
       />
       <div className="education-grid">
         {education.map((item, index) => (
@@ -1136,6 +1138,7 @@ function Education() {
 }
 
 function Contact() {
+  const { t } = useLanguage();
   const contactItems = [
     {
       label: 'Email',
@@ -1160,14 +1163,14 @@ function Contact() {
   return (
     <section className="section-shell contact-section reveal" id="contact">
       <div className="contact-copy">
-        <p className="eyebrow">Contact</p>
+        <p className="eyebrow">{t('labels.contact')}</p>
         <h2>Let&apos;s build something.</h2>
         <p>
           ¿Tienes un producto, una API, una automatización o un problema técnico
           que quieras convertir en software?
         </p>
         <a className="button primary" href={'mailto:' + profile.email}>
-          Let&apos;s talk <span aria-hidden="true">↗</span>
+          {t('actions.talk')} <span aria-hidden="true">↗</span>
         </a>
       </div>
       <div className="contact-visual" aria-hidden="true">
@@ -1335,7 +1338,7 @@ function Footer() {
         <span className="footer-location">{profile.location}</span>
       </div>
       <div>
-        <h3>Navigation</h3>
+        <h3>{t('labels.navigation')}</h3>
         {navItems.map((item) => (
           <a key={item.href} href={item.href}>
             {t(`nav.${item.key}`)}
@@ -1343,7 +1346,7 @@ function Footer() {
         ))}
       </div>
       <div>
-        <h3>Connect</h3>
+        <h3>{t('labels.connect')}</h3>
         {connectItems.map(([label, href, icon]) => (
           <a
             key={label}
@@ -1359,7 +1362,7 @@ function Footer() {
       </div>
       <div className="footer-end">
         <span>© 2026 Diego Fernando Chacón Estacio</span>
-        <span>Built with React</span>
+        <span>{t('ui.builtWith')}</span>
       </div>
     </footer>
   );
