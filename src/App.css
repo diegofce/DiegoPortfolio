@@ -99,6 +99,34 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 
+.custom-cursor-enabled body,
+.custom-cursor-enabled body * {
+  cursor: none !important;
+}
+
+.custom-cursor {
+  position: fixed;
+  top: -7px;
+  left: -7px;
+  z-index: 100;
+  width: 14px;
+  height: 14px;
+  border: 1px solid var(--accent);
+  border-radius: 50%;
+  background: radial-gradient(circle, var(--accent) 0 2px, transparent 3px);
+  box-shadow: 0 0 22px rgba(143, 184, 255, 0.58);
+  pointer-events: none;
+  transition: width 180ms ease, height 180ms ease, top 180ms ease, left 180ms ease, box-shadow 180ms ease;
+}
+
+.custom-cursor.is-interactive {
+  top: -10px;
+  left: -10px;
+  width: 20px;
+  height: 20px;
+  box-shadow: 0 0 30px rgba(143, 184, 255, 0.76);
+}
+
 body::before {
   position: fixed;
   inset: 0;
