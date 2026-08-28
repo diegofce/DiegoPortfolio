@@ -92,10 +92,10 @@ function BrandMark({ className = '' }) {
       viewBox="0 0 48 48"
       aria-hidden="true"
     >
-      <path className="brand-mark-grid" d="M10 12h28M10 24h28M10 36h28M12 10v28M24 10v28M36 10v28" />
-      <path className="brand-mark-d" d="M14 12h10c7 0 12 4.7 12 12s-5 12-12 12H14V12Z" />
-      <path className="brand-mark-c" d="M31 17a9.5 9.5 0 1 0 0 14" />
-      <path className="brand-mark-caret" d="m17 20-4 4 4 4M31 20l4 4-4 4" />
+      <path className="brand-mark-bracket" d="m18 8-10 16 10 16M30 8l10 16-10 16" />
+      <path className="brand-mark-bridge" d="M19 24h10" />
+      <circle className="brand-mark-accent" cx="24" cy="24" r="4" />
+      <path className="brand-mark-success" d="M24 10v6M24 32v6" />
     </svg>
   );
 }
@@ -822,7 +822,9 @@ function ProjectPreview({ project }) {
       role="img"
       aria-label={`${project.title} project preview`}
     >
-      {cover && <img className="project-cover" src={cover} alt="" loading="lazy" />}
+      {cover && (
+        <img className="project-cover" src={cover} alt="" loading="lazy" />
+      )}
       <div className="preview-window">
         <div className="preview-toolbar">
           <span />
@@ -830,11 +832,7 @@ function ProjectPreview({ project }) {
           <span />
           <small>preview / {visualType}</small>
         </div>
-        <svg
-          className="project-grid"
-          viewBox="0 0 280 100"
-          aria-hidden="true"
-        >
+        <svg className="project-grid" viewBox="0 0 280 100" aria-hidden="true">
           <path d="M0 20h280M0 50h280M0 80h280M40 0v100M100 0v100M160 0v100M220 0v100" />
         </svg>
         <ProjectVisual type={visualType} />
@@ -1007,8 +1005,8 @@ function AiSection() {
         <span>Portfolio Assistant</span>
         <strong>Ask Diego AI</strong>
         <p>
-          Ask about projects, stack, architecture and AI
-          integration. Answers are limited to confirmed portfolio content.
+          Ask about projects, stack, architecture and AI integration. Answers
+          are limited to confirmed portfolio content.
         </p>
       </div>
     </section>

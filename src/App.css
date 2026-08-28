@@ -354,26 +354,72 @@ main {
 .assistant-toggle,
 .quick-prompts button,
 .assistant-form button {
+  position: relative;
   display: inline-flex;
   min-height: 44px;
   align-items: center;
   justify-content: center;
+  overflow: hidden;
   border: 1px solid var(--line);
   border-radius: 999px;
   padding: 0 18px;
   transition:
-    transform 160ms ease,
-    border-color 160ms ease,
-    background 160ms ease,
-    color 160ms ease;
+    transform var(--transition-fast),
+    border-color var(--transition-fast),
+    background var(--transition-fast),
+    box-shadow var(--transition-fast),
+    color var(--transition-fast);
+}
+
+.button::before,
+.assistant-toggle::before,
+.assistant-form button::before {
+  position: absolute;
+  inset: -45% -80%;
+  background: linear-gradient(
+    110deg,
+    transparent 38%,
+    rgba(255, 255, 255, 0.34) 50%,
+    transparent 62%
+  );
+  content: '';
+  opacity: 0;
+  transform: translateX(-42%) rotate(8deg);
+  transition:
+    opacity var(--transition-normal),
+    transform var(--transition-normal);
+}
+
+.button > *,
+.assistant-toggle > *,
+.assistant-form button > * {
+  position: relative;
+  z-index: 1;
 }
 
 .button:hover,
+.assistant-toggle:hover,
+.assistant-form button:hover:not(:disabled) {
+  border-color: rgba(143, 184, 255, 0.38);
+  box-shadow: 0 12px 36px rgba(143, 184, 255, 0.12);
+  transform: translateY(-2px);
+}
+
+.button:hover::before,
+.assistant-toggle:hover::before,
+.assistant-form button:hover:not(:disabled)::before {
+  opacity: 1;
+  transform: translateX(42%) rotate(8deg);
+}
+
+.button:focus-visible {
+  border-color: var(--accent);
+  box-shadow: 0 0 0 4px rgba(143, 184, 255, 0.14);
+}
+
 .project-links a:hover,
 .contact-links a:hover,
-.assistant-toggle:hover,
-.quick-prompts button:hover,
-.assistant-form button:hover:not(:disabled) {
+.quick-prompts button:hover {
   border-color: rgba(143, 184, 255, 0.38);
   transform: translateY(-2px);
 }
@@ -384,13 +430,17 @@ main {
 .assistant-toggle:active,
 .quick-prompts button:active,
 .assistant-form button:active:not(:disabled) {
-  transform: translateY(0) scale(0.99);
+  box-shadow: 0 4px 18px rgba(143, 184, 255, 0.12);
+  transform: translateY(0) scale(0.975);
 }
 
 .button.primary,
 .assistant-form button {
   border-color: rgba(143, 184, 255, 0.58);
   background: var(--accent-strong);
+  box-shadow:
+    0 14px 38px rgba(143, 184, 255, 0.18),
+    inset 0 1px 0 rgba(255, 255, 255, 0.62);
   color: #07101d;
   font-weight: 700;
 }
@@ -1085,7 +1135,6 @@ main {
   .education-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
-
 }
 
 @media (max-width: 620px) {
@@ -1751,28 +1800,34 @@ main {
 }
 
 .brand-mark {
-  width: 30px;
-  height: 30px;
+  width: 28px;
+  height: 28px;
   fill: none;
   overflow: visible;
 }
 
-.brand-mark-grid {
-  stroke: rgba(143, 184, 255, 0.16);
-  stroke-width: 0.75;
-}
-
-.brand-mark-d {
+.brand-mark-bracket,
+.brand-mark-bridge,
+.brand-mark-accent,
+.brand-mark-success {
   stroke: var(--accent-strong);
-  stroke-width: 2.6;
-}
-
-.brand-mark-c,
-.brand-mark-caret {
-  stroke: var(--success);
   stroke-linecap: round;
   stroke-linejoin: round;
-  stroke-width: 2;
+  stroke-width: 1.35;
+  vector-effect: non-scaling-stroke;
+}
+
+.brand-mark-accent {
+  fill: var(--accent);
+  stroke: var(--accent);
+}
+
+.brand-mark-success {
+  stroke: var(--success);
+}
+
+.brand-mark-bridge {
+  stroke: var(--success);
 }
 
 .about-section {
@@ -1802,9 +1857,21 @@ main {
   min-height: 470px;
   padding: 22px;
   background:
-    radial-gradient(circle at 78% 18%, rgba(121, 214, 163, 0.13), transparent 18rem),
-    radial-gradient(circle at 18% 92%, rgba(143, 184, 255, 0.14), transparent 20rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.07), rgba(255, 255, 255, 0.018));
+    radial-gradient(
+      circle at 78% 18%,
+      rgba(121, 214, 163, 0.13),
+      transparent 18rem
+    ),
+    radial-gradient(
+      circle at 18% 92%,
+      rgba(143, 184, 255, 0.14),
+      transparent 20rem
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.07),
+      rgba(255, 255, 255, 0.018)
+    );
 }
 
 .about-visual::before {
@@ -1930,8 +1997,16 @@ main {
 .stack-category {
   padding: 22px;
   background:
-    radial-gradient(circle at 90% 10%, rgba(121, 214, 163, 0.09), transparent 15rem),
-    linear-gradient(145deg, rgba(255, 255, 255, 0.064), rgba(255, 255, 255, 0.022));
+    radial-gradient(
+      circle at 90% 10%,
+      rgba(121, 214, 163, 0.09),
+      transparent 15rem
+    ),
+    linear-gradient(
+      145deg,
+      rgba(255, 255, 255, 0.064),
+      rgba(255, 255, 255, 0.022)
+    );
 }
 
 .stack-category::after {
@@ -1961,7 +2036,9 @@ main {
   stroke-linecap: round;
   stroke-linejoin: round;
   stroke-width: 1.3;
-  transition: transform var(--transition-normal), stroke var(--transition-normal);
+  transition:
+    transform var(--transition-normal),
+    stroke var(--transition-normal);
 }
 
 .stack-category:hover .stack-art {
@@ -2071,8 +2148,16 @@ main {
 
 .contact-visual {
   background:
-    radial-gradient(circle at 50% 42%, rgba(121, 214, 163, 0.11), transparent 44%),
-    linear-gradient(135deg, rgba(143, 184, 255, 0.08), rgba(255, 255, 255, 0.018));
+    radial-gradient(
+      circle at 50% 42%,
+      rgba(121, 214, 163, 0.11),
+      transparent 44%
+    ),
+    linear-gradient(
+      135deg,
+      rgba(143, 184, 255, 0.08),
+      rgba(255, 255, 255, 0.018)
+    );
 }
 
 .contact-visual svg {
