@@ -44,11 +44,12 @@
 
 html {
   scroll-behavior: smooth;
+  overflow-x: hidden;
 }
 
 body {
   margin: 0;
-  min-width: 320px;
+  min-width: 0;
   overflow-x: hidden;
   background:
     radial-gradient(
@@ -305,7 +306,7 @@ main {
 .hero h1 {
   max-width: 760px;
   color: var(--text);
-  font-size: clamp(4rem, 10vw, 8.5rem);
+  font-size: clamp(2.75rem, 6.5vw, 5.5rem);
   font-weight: 760;
   letter-spacing: 0;
   line-height: 0.92;
@@ -1065,17 +1066,17 @@ main {
 
 @media (max-width: 1040px) {
   .hero-inner {
-    grid-template-columns: 1fr;
-    gap: 48px;
+    grid-template-columns: minmax(0, 1fr) minmax(140px, 180px);
+    gap: 28px;
     align-content: center;
   }
 
   .hero-portrait {
-    justify-items: start;
+    justify-items: end;
   }
 
   .portrait-frame {
-    width: min(260px, 72vw);
+    width: 180px;
   }
 }
 
@@ -1142,6 +1143,10 @@ main {
     --space-section: 76px;
   }
 
+  body {
+    min-width: 0;
+  }
+
   .site-header,
   .section-shell,
   .site-footer {
@@ -1154,13 +1159,14 @@ main {
 
   .hero-inner {
     min-height: 100svh;
-    gap: 32px;
+    grid-template-columns: minmax(0, 1fr) 112px;
+    gap: 16px;
     padding-top: 96px;
     padding-bottom: 48px;
   }
 
   .hero h1 {
-    font-size: clamp(3.25rem, 17vw, 5rem);
+    font-size: clamp(2.35rem, 10vw, 4rem);
     line-height: 0.96;
   }
 
@@ -1178,7 +1184,12 @@ main {
   }
 
   .portrait-frame {
-    width: min(220px, 72vw);
+    width: 112px;
+    border-radius: 50%;
+  }
+
+  .hero-portrait figcaption {
+    display: none;
   }
 
   .stack-categories,
@@ -2349,7 +2360,16 @@ main {
   .hero h1,
   .about-intro h2,
   .contact-section h2 {
-    font-size: clamp(3rem, 15vw, 4rem);
+    font-size: clamp(2.15rem, 10vw, 3.25rem);
+  }
+
+  .hero-inner {
+    grid-template-columns: minmax(0, 1fr) 92px;
+    gap: 10px;
+  }
+
+  .portrait-frame {
+    width: 92px;
   }
 
   .mobile-nav a,
