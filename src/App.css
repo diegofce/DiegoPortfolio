@@ -260,8 +260,9 @@ main {
   grid-template-columns: auto minmax(0, 1fr) auto auto auto auto;
   align-items: center;
   gap: 8px;
+  grid-auto-rows: 44px;
   width: min(var(--container), calc(100% - 32px));
-  min-height: 56px;
+  min-height: 60px;
   padding: 8px;
   border: 1px solid transparent;
   border-radius: 999px;
@@ -279,6 +280,14 @@ main {
   background: rgba(8, 12, 19, 0.78);
   box-shadow: var(--shadow);
   backdrop-filter: blur(18px);
+}
+
+.site-header > .brand,
+.site-header > .nav-cv,
+.site-header > .language-toggle,
+.site-header > .theme-toggle,
+.site-header > .menu-toggle {
+  align-self: center;
 }
 
 .brand {
