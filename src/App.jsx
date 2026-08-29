@@ -1,6 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import './App.css';
-import cvFile from './assets/cvPy.pdf'; // ✓ Validado: Archivo incluido en build (dist/assets/cvPy-*.pdf)
+import cvFile from './assets/Diego_Chacon_Desarrollador.pdf';
 import profilePhoto from './assets/foto-perfil.jpeg';
 import { useLanguage } from './common/LanguageContext';
 import { useTheme } from './common/ThemeContext';
