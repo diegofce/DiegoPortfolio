@@ -933,6 +933,7 @@ main {
   position: relative;
   display: grid;
   min-height: 220px;
+  aspect-ratio: 16 / 9;
   place-items: center;
   overflow: hidden;
   border-bottom: 1px solid var(--line);
