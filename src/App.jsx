@@ -338,6 +338,7 @@ function Navbar() {
   const { theme, toggleTheme } = useTheme();
   const [isOpen, setIsOpen] = useState(false);
   const [scrolled, setScrolled] = useState(false);
+  const [activeSection, setActiveSection] = useState('home');
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 24);
@@ -355,6 +356,34 @@ function Navbar() {
     };
   }, []);
 
+  // ScrollSpy: detectar sección visible
+  useEffect(() => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            const sectionId = entry.target.id;
+            setActiveSection(sectionId);
+          }
+        });
+      },
+      { threshold: 0.3 }
+    );
+
+    const sections = navItems.map((item) =>
+      document.querySelector(item.href)
+    );
+    sections.forEach((section) => {
+      if (section) observer.observe(section);
+    });
+
+    return () => {
+      sections.forEach((section) => {
+        if (section) observer.unobserve(section);
+      });
+    };
+  }, []);
+
   return (
     <header className={scrolled ? 'site-header is-scrolled' : 'site-header'}>
       <a className="brand" href="#home" aria-label={t('ui.goHome')}>
@@ -362,11 +391,19 @@ function Navbar() {
         <span>Diego Chacón</span>
       </a>
       <nav className="desktop-nav" aria-label={t('ui.primaryNavigation')}>
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href}>
-            {t(`nav.${item.key}`)}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const isActive = activeSection === item.key;
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              className={isActive ? 'is-active' : ''}
+              aria-current={isActive ? 'page' : undefined}
+            >
+              {t(`nav.${item.key}`)}
+            </a>
+          );
+        })}
       </nav>
       <a className="nav-cv" href={cvFile} download>
         {t('actions.downloadCv')}
@@ -404,11 +441,20 @@ function Navbar() {
         className={isOpen ? 'mobile-nav is-open' : 'mobile-nav'}
         aria-hidden={!isOpen}
       >
-        {navItems.map((item) => (
-          <a key={item.href} href={item.href} onClick={() => setIsOpen(false)}>
-            {t(`nav.${item.key}`)}
-          </a>
-        ))}
+        {navItems.map((item) => {
+          const isActive = activeSection === item.key;
+          return (
+            <a
+              key={item.href}
+              href={item.href}
+              className={isActive ? 'is-active' : ''}
+              aria-current={isActive ? 'page' : undefined}
+              onClick={() => setIsOpen(false)}
+            >
+              {t(`nav.${item.key}`)}
+            </a>
+          );
+        })}
         <a href={cvFile} download onClick={() => setIsOpen(false)}>
           {t('actions.downloadCv')}
         </a>

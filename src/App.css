@@ -346,6 +346,12 @@ main {
   color: var(--text);
 }
 
+.desktop-nav a.is-active,
+.mobile-nav a.is-active {
+  color: var(--accent-strong);
+  border-bottom: 2px solid var(--accent);
+}
+
 .nav-cv {
   border: 1px solid var(--line);
   color: var(--accent-strong);
