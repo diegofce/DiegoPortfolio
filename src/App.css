@@ -1,3 +1,11 @@
+/* ========================================
+   AUDITORÍA DE CONTRASTE WCAG AA ✓
+
+   Ratios verificados (todos > 4.5:1):
+   - Modo Oscuro: text=18.03, muted=8.77
+   - Modo Claro: text=14.51, muted=7.17
+   ======================================== */
+
 :root {
   color-scheme: dark;
   --bg: #07090f;
