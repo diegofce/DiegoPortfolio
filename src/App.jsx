@@ -367,12 +367,10 @@ function Navbar() {
           }
         });
       },
-      { threshold: 0.3 }
+      { threshold: 0.3 },
     );
 
-    const sections = navItems.map((item) =>
-      document.querySelector(item.href)
-    );
+    const sections = navItems.map((item) => document.querySelector(item.href));
     sections.forEach((section) => {
       if (section) observer.observe(section);
     });
@@ -520,7 +518,15 @@ function CodeConstellation() {
       canvas.width = Math.floor(width * ratio);
       canvas.height = Math.floor(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      const count = mobile.matches ? 20 : 48;
+      
+      // Adaptive node count: mobile < 768px, low CPU concurrency
+      let count = 48; // desktop default
+      if (mobile.matches) {
+        count = 15; // mobile default
+        const concurrency = navigator.hardwareConcurrency || 4;
+        if (concurrency <= 2) count = 10; // ultra-low-end devices
+      }
+      
       nodes = Array.from({ length: count }, (_, index) => ({
         baseX: Math.random() * width,
         baseY: Math.random() * height,
