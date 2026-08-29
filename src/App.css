@@ -2589,20 +2589,3 @@ main {
     min-width: 144px;
   }
 }
-
-@media (max-width: 980px) {
-  .site-header > .language-toggle,
-  .site-header > .theme-toggle {
-    display: none !important;
-  }
-
-  .site-header {
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
-    column-gap: 8px;
-  }
-
-  .menu-toggle {
-    display: block !important;
-    grid-column: 3;
-  }
-}
