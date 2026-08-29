@@ -294,8 +294,13 @@ function StackArtwork({ category }) {
   );
 }
 
+// MVP: Asistente basado en reglas de keywords. Futuro refactor: considerar embeddings + semantic search para respuestas más robustas.
 function createAssistantAnswer(message) {
-  const query = message.toLowerCase();
+  // Normalizar búsqueda: remover tildes (educación → educacion) y pasar a minúsculas
+  const query = message
+    .normalize('NFD')
+    .replace(/[\u0300-\u036f]/g, '')
+    .toLowerCase();
 
   if (
     query.includes('stack') ||
@@ -518,7 +523,7 @@ function CodeConstellation() {
       canvas.width = Math.floor(width * ratio);
       canvas.height = Math.floor(height * ratio);
       context.setTransform(ratio, 0, 0, ratio, 0, 0);
-      
+
       // Adaptive node count: mobile < 768px, low CPU concurrency
       let count = 48; // desktop default
       if (mobile.matches) {
@@ -526,7 +531,7 @@ function CodeConstellation() {
         const concurrency = navigator.hardwareConcurrency || 4;
         if (concurrency <= 2) count = 10; // ultra-low-end devices
       }
-      
+
       nodes = Array.from({ length: count }, (_, index) => ({
         baseX: Math.random() * width,
         baseY: Math.random() * height,
