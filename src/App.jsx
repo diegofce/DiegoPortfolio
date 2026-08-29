@@ -195,6 +195,12 @@ function LineIcon({ type = 'node' }) {
         <path d="m9 7-5 5 5 5M15 7l5 5-5 5M13 5l-2 14" />
       </>
     ),
+    globe: (
+      <>
+        <circle cx="12" cy="12" r="8" />
+        <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8M12 4v16M6 9c0 2.2 1.3 4.1 3.2 5s4.1 1 5.8-0.2" />
+      </>
+    ),
     circle: <circle cx="12" cy="12" r="7" />,
   };
   return (
@@ -371,7 +377,8 @@ function Navbar() {
         onClick={toggleLanguage}
         aria-label={t('language.switch')}
       >
-        {language.toUpperCase()}
+        <LineIcon type="globe" />
+        <span className="lang-badge">{language.toUpperCase()}</span>
       </button>
       <button
         className="theme-toggle"
@@ -411,7 +418,8 @@ function Navbar() {
           onClick={toggleLanguage}
           aria-label={t('language.switch')}
         >
-          {language.toUpperCase()}
+          <LineIcon type="globe" />
+          <span className="lang-badge">{language.toUpperCase()}</span>
         </button>
         <button
           className="theme-toggle"
