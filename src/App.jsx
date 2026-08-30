@@ -4,16 +4,16 @@ import cvFile from './assets/Diego_Chacon_Desarrollador.pdf';
 import profilePhoto from './assets/foto-perfil.jpeg';
 import { useLanguage } from './common/LanguageContext';
 import { useTheme } from './common/ThemeContext';
+import { BrandMark } from './components/BrandMark';
+import { LineIcon } from './components/LineIcon';
+import { SectionHeading } from './components/SectionHeading';
+import { SocialIcon } from './components/SocialIcon';
+import { STACK_SYMBOLS, StackArtwork } from './components/StackArtwork';
+import { TechIcon } from './components/TechIcon';
 import { education } from './data/education';
 import { profile, socialLinks } from './data/profile';
 import { projects } from './data/projects';
 import { technologies } from './data/technologies';
-import { BrandMark } from './components/BrandMark';
-import { LineIcon } from './components/LineIcon';
-import { TechIcon } from './components/TechIcon';
-import { SocialIcon } from './components/SocialIcon';
-import { SectionHeading } from './components/SectionHeading';
-import { StackArtwork, STACK_SYMBOLS } from './components/StackArtwork';
 
 const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
   eager: true,
