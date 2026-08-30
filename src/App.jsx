@@ -8,6 +8,12 @@ import { education } from './data/education';
 import { profile, socialLinks } from './data/profile';
 import { projects } from './data/projects';
 import { technologies } from './data/technologies';
+import { BrandMark } from './components/BrandMark';
+import { LineIcon } from './components/LineIcon';
+import { TechIcon } from './components/TechIcon';
+import { SocialIcon } from './components/SocialIcon';
+import { SectionHeading } from './components/SectionHeading';
+import { StackArtwork, STACK_SYMBOLS } from './components/StackArtwork';
 
 const projectCovers = import.meta.glob('./assets/projects/**/cover.webp', {
   eager: true,
@@ -41,15 +47,6 @@ const stackDescriptions = {
   Infrastructure: 'Herramientas que mantienen repetible la entrega.',
   Architecture: 'Límites que hacen más sencillo cambiar los sistemas.',
   'AI & Automation': 'Inteligencia práctica conectada a flujos reales.',
-};
-
-const stackSymbols = {
-  Backend: 'server',
-  Frontend: 'browser',
-  Databases: 'database',
-  Infrastructure: 'container',
-  Architecture: 'layers',
-  'AI & Automation': 'spark',
 };
 
 const principleCards = [
@@ -93,206 +90,6 @@ const buildLayers = [
   ],
   ['06', 'Inteligencia', 'AI APIs', 'Automatización conectada a un propósito.'],
 ];
-
-function BrandMark({ className = '' }) {
-  return (
-    <svg
-      className={className ? `brand-mark ${className}` : 'brand-mark'}
-      viewBox="0 0 48 48"
-      aria-hidden="true"
-    >
-      <path
-        className="brand-mark-bracket"
-        d="m18 8-10 16 10 16M30 8l10 16-10 16"
-      />
-      <path className="brand-mark-bridge" d="M19 24h10" />
-      <circle className="brand-mark-accent" cx="24" cy="24" r="4" />
-      <path className="brand-mark-success" d="M24 10v6M24 32v6" />
-    </svg>
-  );
-}
-
-function LineIcon({ type = 'node' }) {
-  const paths = {
-    node: (
-      <>
-        <circle cx="12" cy="4" r="2" />
-        <circle cx="5" cy="19" r="2" />
-        <circle cx="19" cy="19" r="2" />
-        <path d="m10.8 5.6-4.6 11.7m7-11.7 4.6 11.7M7 19h10" />
-      </>
-    ),
-    server: (
-      <>
-        <rect x="4" y="4" width="16" height="6" rx="1" />
-        <rect x="4" y="14" width="16" height="6" rx="1" />
-        <path d="M8 7h.01M8 17h.01M11 7h5M11 17h5" />
-      </>
-    ),
-    browser: (
-      <>
-        <rect x="3" y="4" width="18" height="16" rx="2" />
-        <path d="M3 9h18M7 6.5h.01M10 6.5h.01M13 6.5h.01M8 14l2 2 4-5" />
-      </>
-    ),
-    database: (
-      <>
-        <ellipse cx="12" cy="5" rx="7" ry="3" />
-        <path d="M5 5v7c0 1.7 3.1 3 7 3s7-1.3 7-3V5M5 12v7c0 1.7 3.1 3 7 3s7-1.3 7-3v-7" />
-      </>
-    ),
-    container: (
-      <>
-        <path d="M4 8h16v10H4zM4 8l8-4 8 4M12 4v14M8 6v12M16 6v12" />
-      </>
-    ),
-    layers: (
-      <>
-        <path d="m12 3 9 5-9 5-9-5 9-5Z" />
-        <path d="m3 13 9 5 9-5M3 18l9 5 9-5" />
-      </>
-    ),
-    spark: (
-      <>
-        <path d="M12 2v5M12 17v5M4.9 4.9l3.5 3.5M15.6 15.6l3.5 3.5M2 12h5M17 12h5M4.9 19.1l3.5-3.5M15.6 8.4l3.5-3.5" />
-        <circle cx="12" cy="12" r="3" />
-      </>
-    ),
-    api: (
-      <>
-        <path d="M7 8h10M7 16h10M4 12h16" />
-        <circle cx="5" cy="8" r="2" />
-        <circle cx="19" cy="12" r="2" />
-        <circle cx="5" cy="16" r="2" />
-      </>
-    ),
-    key: (
-      <>
-        <circle cx="8" cy="12" r="4" />
-        <path d="M12 12h9M17 12v3M20 12v2" />
-      </>
-    ),
-    hexagon: (
-      <>
-        <path d="m12 3 8 4.5v9L12 21l-8-4.5v-9L12 3Z" />
-        <path d="M8.5 12h7M12 8.5v7" />
-      </>
-    ),
-    terminal: (
-      <>
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <path d="m7 10 3 2-3 2M12 15h5" />
-      </>
-    ),
-    prompt: (
-      <>
-        <path d="M5 6h14v8H9l-4 4V6Z" />
-        <path d="M8 10h.01M11 10h5" />
-      </>
-    ),
-    code: (
-      <>
-        <path d="m9 7-5 5 5 5M15 7l5 5-5 5M13 5l-2 14" />
-      </>
-    ),
-    globe: (
-      <>
-        <circle cx="12" cy="12" r="8" />
-        <path d="M4 12c0-4.4 3.6-8 8-8s8 3.6 8 8M12 4v16M6 9c0 2.2 1.3 4.1 3.2 5s4.1 1 5.8-0.2" />
-      </>
-    ),
-    circle: <circle cx="12" cy="12" r="7" />,
-  };
-  return (
-    <svg className="line-icon" viewBox="0 0 24 24" aria-hidden="true">
-      {paths[type] || paths.node}
-    </svg>
-  );
-}
-
-function TechIcon({ tech }) {
-  if (tech.icon?.startsWith('concept:')) {
-    return (
-      <span className="tech-icon-shell" aria-hidden="true">
-        <LineIcon type={tech.icon.replace('concept:', '')} />
-      </span>
-    );
-  }
-
-  return <img src={tech.icon} alt="" loading="lazy" />;
-}
-
-function SocialIcon({ type }) {
-  const paths = {
-    email: (
-      <>
-        <rect x="3" y="5" width="18" height="14" rx="2" />
-        <path d="m4 7 8 6 8-6" />
-      </>
-    ),
-    linkedin: (
-      <>
-        <path d="M6.5 10v8M6.5 6.5v.01M11 18v-8M11 13.5c0-2.1 1.2-3.5 3.3-3.5s3.2 1.5 3.2 4v4" />
-      </>
-    ),
-    github: (
-      <>
-        <path d="M9 19c-4 1.3-4-2-5.5-2.5M14.5 21v-3.4c0-1 .1-1.4-.5-2 2.9-.3 6-1.4 6-6A4.7 4.7 0 0 0 18.7 6a4.4 4.4 0 0 0-.1-3.4s-1.1-.3-3.5 1.3a12.1 12.1 0 0 0-6.2 0C6.5 2.3 5.4 2.6 5.4 2.6A4.4 4.4 0 0 0 5.3 6 4.7 4.7 0 0 0 4 9.6c0 4.6 3.1 5.7 6 6-.6.6-.6 1.2-.5 2V21" />
-      </>
-    ),
-  };
-
-  return (
-    <svg className="social-icon" viewBox="0 0 24 24" aria-hidden="true">
-      {paths[type]}
-    </svg>
-  );
-}
-
-function StackArtwork({ category }) {
-  const type = stackSymbols[category];
-  return (
-    <svg className="stack-art" viewBox="0 0 180 180" aria-hidden="true">
-      <path d="M24 36h132M24 72h132M24 108h132M24 144h132M36 24v132M72 24v132M108 24v132M144 24v132" />
-      {type === 'server' && (
-        <>
-          <rect x="44" y="44" width="92" height="32" rx="6" />
-          <rect x="44" y="104" width="92" height="32" rx="6" />
-          <path d="M58 60h8M78 60h42M58 120h8M78 120h42" />
-        </>
-      )}
-      {type === 'browser' && (
-        <>
-          <rect x="42" y="42" width="96" height="88" rx="8" />
-          <path d="M42 66h96M62 52h1M78 52h1M66 96l16 16 34-40" />
-        </>
-      )}
-      {type === 'database' && (
-        <>
-          <ellipse cx="90" cy="54" rx="48" ry="18" />
-          <path d="M42 54v70c0 10 21.5 18 48 18s48-8 48-18V54M42 90c0 10 21.5 18 48 18s48-8 48-18" />
-        </>
-      )}
-      {type === 'container' && (
-        <>
-          <path d="M44 68h92v58H44zM44 68l46-24 46 24M90 44v82M62 58v68M118 58v68" />
-        </>
-      )}
-      {type === 'layers' && (
-        <>
-          <path d="m90 38 56 30-56 30-56-30 56-30Z" />
-          <path d="m34 92 56 30 56-30M34 116l56 30 56-30" />
-        </>
-      )}
-      {type === 'spark' && (
-        <>
-          <circle cx="90" cy="90" r="22" />
-          <path d="M90 26v28M90 126v28M26 90h28M126 90h28M45 45l20 20M115 115l20 20M45 135l20-20M115 65l20-20" />
-        </>
-      )}
-    </svg>
-  );
-}
 
 // MVP: Asistente basado en reglas de keywords. Futuro refactor: considerar embeddings + semantic search para respuestas más robustas.
 function createAssistantAnswer(message) {
@@ -724,16 +521,6 @@ function CustomCursor() {
   return <span ref={cursorRef} className="custom-cursor" aria-hidden="true" />;
 }
 
-function SectionHeading({ eyebrow, title, children }) {
-  return (
-    <div className="section-heading">
-      <p className="eyebrow">{eyebrow}</p>
-      <h2>{title}</h2>
-      {children && <p>{children}</p>}
-    </div>
-  );
-}
-
 function Hero() {
   const { t } = useLanguage();
   return (
@@ -897,7 +684,7 @@ function TechStack() {
           <article className="stack-category" key={category}>
             <div className="stack-card-top">
               <span>0{categories.indexOf(category) + 1}</span>
-              <LineIcon type={stackSymbols[category]} />
+              <LineIcon type={STACK_SYMBOLS[category]} />
             </div>
             <StackArtwork category={category} />
             <LineIcon
