@@ -496,8 +496,8 @@ function CustomCursor() {
       );
     };
     const render = () => {
-      position.x += (target.x - position.x) * 0.22;
-      position.y += (target.y - position.y) * 0.22;
+      position.x += (target.x - position.x) * 0.30;
+      position.y += (target.y - position.y) * 0.30;
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
       }
