@@ -9,35 +9,41 @@ A modern, responsive portfolio showcasing full-stack development expertise with 
 ## Features
 
 ### 🎨 Design & UX
+
 - **Dark & Light Themes**: Seamless theme switching with localStorage persistence (dark is default)
 - **Responsive Layout**: Mobile-first design optimized for 320px–1920px viewports
 - **Smooth Animations**: Scroll-reveal animations with `prefers-reduced-motion` support
 - **Custom Cursor**: Interactive hover effects with lerp-interpolated position tracking
 
 ### 🌐 Internationalization
+
 - **ES/EN Language Toggle**: Full UI localization with translation function
 - **Dynamic Content**: Sections render based on selected language
 - **Language Persistence**: Selection saved to localStorage
 
 ### 🧠 Smart Components
+
 - **ScrollSpy Navigation**: Active section tracking with IntersectionObserver
 - **AI Assistant Widget**: MVP keyword-based assistant for common questions (education, stack, projects)
 - **Project Cards**: Expandable details with problem/solution/architecture narratives
 - **Background Canvas**: Adaptive particle system (48 nodes desktop, 15 mobile, scales with CPU cores)
 
 ### ⚡ Performance
+
 - **PDF Optimization**: Compressed CV (~139 kB, down from 3.9 MB)
 - **Image Optimization**: WebP conversion, lazy loading with `loading="lazy"`
 - **Code Splitting**: Vite's automatic chunking; 47 modules with 184.50 kB JS (gzip: 58.62 kB)
 - **CSS-in-Modules**: Scoped styles per section to avoid cascade conflicts
 
 ### ♿ Accessibility
+
 - **WCAG AA Contrast**: All text ratios > 4.5:1 (dark & light modes verified)
 - **Semantic HTML**: Proper landmarks (nav, main, section, footer)
 - **Keyboard Navigation**: Full focus-visible outlines, 2px solid outline
 - **aria-labels & aria-current**: Navigation and interactive elements properly labeled
 
 ### 🔧 Architecture
+
 - **React 18 + Vite 5.3**: Fast HMR dev server, optimized production build
 - **Context API**: Global state for theme and language (no Redux needed)
 - **Modular Components**: Reusable UI blocks (BrandMark, LineIcon, TechIcon, etc.)
@@ -49,27 +55,32 @@ A modern, responsive portfolio showcasing full-stack development expertise with 
 ## Tech Stack
 
 ### Frontend
+
 - **React 18** — UI library
 - **Vite 5.3** — Build tool & dev server
 - **CSS 3** — CSS modules, Grid, Flexbox, custom properties
 - **JavaScript ES2020+** — Modern syntax, destructuring, arrow functions
 
 ### Styling
+
 - **CSS Variables** — Theme switching, responsive design
 - **CSS Modules** — Section-level scoped styles
 - **Grid & Flexbox** — Responsive layout system
 - **Animations** — CSS keyframes, scroll-reveal effects
 
 ### Internationalization
+
 - **Custom i18n** — Translation function via Context (no i18n library overhead)
-- **Namespaced Keys** — Organized translations by section (nav.*, headings.*, etc.)
+- **Namespaced Keys** — Organized translations by section (nav._, headings._, etc.)
 
 ### Icons & Graphics
+
 - **SVG System**: Custom icons (BrandMark, LineIcon variants, SocialIcon)
 - **Simple Icons CDN** — Tech logos via `simpleicons.org` (no bundle bloat)
 - **Canvas Rendering** — Particle background (CodeConstellation, responsive node count)
 
 ### Hosting & Deployment
+
 - **Netlify** — Static hosting with automatic deployments from Git
 - **robots.txt & sitemap.xml** — SEO setup with 7 indexed URLs
 
@@ -122,36 +133,46 @@ public/
 ## Development
 
 ### Prerequisites
+
 - **Node.js 18+** (LTS recommended)
 - **npm 9+** or **pnpm**
 
 ### Install Dependencies
+
 ```bash
 npm install
 ```
 
 ### Start Dev Server
+
 ```bash
 npm run dev
 ```
+
 Runs at `http://127.0.0.1:5173/` with hot module reload (HMR).
 
 ### Lint Code
+
 ```bash
 npm run lint
 ```
+
 ESLint checks JavaScript & JSX files; 0 warnings allowed.
 
 ### Build Production
+
 ```bash
 npm run build
 ```
+
 Generates optimized `dist/` folder with minified CSS/JS, ready for deployment.
 
 ### Preview Production Build
+
 ```bash
 npm run preview
 ```
+
 Serves the production build locally at `http://localhost:4173/` for testing before deployment.
 
 ---
@@ -159,13 +180,16 @@ Serves the production build locally at `http://localhost:4173/` for testing befo
 ## Deployment
 
 ### Netlify (Current)
+
 The portfolio is deployed on Netlify with:
+
 - **Automatic deployments** from `main` branch
 - **Environment**: Static site (no server-side rendering needed)
 - **Build command**: `npm run build`
 - **Publish directory**: `dist/`
 
 ### Manual Deployment
+
 1. Run `npm run build` locally
 2. Upload `dist/` folder to any static host (Netlify, Vercel, GitHub Pages, etc.)
 
@@ -173,16 +197,17 @@ The portfolio is deployed on Netlify with:
 
 ## Performance Metrics
 
-| Metric | Value |
-|--------|-------|
-| **JS Bundle (gzip)** | 58.62 kB |
-| **CSS Bundle (gzip)** | 8.52 kB |
-| **Total Modules** | 47 |
-| **CV PDF Size** | 139.33 kB (compressed) |
-| **Profile Photo** | 25.37 kB (optimized) |
-| **Build Time** | ~2 seconds |
+| Metric                | Value                  |
+| --------------------- | ---------------------- |
+| **JS Bundle (gzip)**  | 58.62 kB               |
+| **CSS Bundle (gzip)** | 8.52 kB                |
+| **Total Modules**     | 47                     |
+| **CV PDF Size**       | 139.33 kB (compressed) |
+| **Profile Photo**     | 25.37 kB (optimized)   |
+| **Build Time**        | ~2 seconds             |
 
 **Lighthouse Targets**:
+
 - Performance: > 90
 - Accessibility: > 95
 - Best Practices: > 90
@@ -193,18 +218,23 @@ The portfolio is deployed on Netlify with:
 ## Key Decisions
 
 ### Dark Theme as Default
+
 Unlike `prefers-color-scheme`, users see dark theme on first visit for consistent brand experience. Toggle is always visible in navbar.
 
 ### Simple Icons CDN
+
 Logo images use `https://cdn.simpleicons.org/{slug}/{color}` instead of local SVG assets — reduces bundle size, ensures logos are always up-to-date without manual updates.
 
 ### Custom i18n
+
 Built-in translation function via React Context instead of external library (i18n-js, react-i18next) — keeps bundle lean, translation logic transparent.
 
 ### Canvas Particles over Decorative Images
+
 Adaptive background via HTML5 Canvas (CodeConstellation) instead of static background images — responsive to viewport and CPU availability (desktop: 48 nodes, mobile: 15 nodes).
 
 ### CSS Modules per Section
+
 Scoped styling per section avoids global namespace pollution while keeping the main App.css for shared tokens and @media rules.
 
 ---

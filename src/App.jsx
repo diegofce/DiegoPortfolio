@@ -475,7 +475,8 @@ function ScrollProgressBar() {
     const handleScroll = () => {
       if (!progressRef.current) return;
       const scrollTop = window.scrollY;
-      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const docHeight =
+        document.documentElement.scrollHeight - window.innerHeight;
       const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
       progressRef.current.style.width = `${scrollPercent}%`;
     };
@@ -484,7 +485,9 @@ function ScrollProgressBar() {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
-  return <div ref={progressRef} className="scroll-progress-bar" aria-hidden="true" />;
+  return (
+    <div ref={progressRef} className="scroll-progress-bar" aria-hidden="true" />
+  );
 }
 
 function RotatingText() {
@@ -509,11 +512,7 @@ function RotatingText() {
     return () => clearInterval(interval);
   }, []);
 
-  const texts = [
-    'Backend Developer',
-    'Full Stack Engineer',
-    'Problem Solver',
-  ];
+  const texts = ['Backend Developer', 'Full Stack Engineer', 'Problem Solver'];
 
   return (
     <span
@@ -554,8 +553,8 @@ function CustomCursor() {
       );
     };
     const render = () => {
-      position.x += (target.x - position.x) * 0.30;
-      position.y += (target.y - position.y) * 0.30;
+      position.x += (target.x - position.x) * 0.3;
+      position.y += (target.y - position.y) * 0.3;
       if (cursorRef.current) {
         cursorRef.current.style.transform = `translate3d(${position.x}px, ${position.y}px, 0)`;
       }
