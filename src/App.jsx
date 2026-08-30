@@ -468,6 +468,64 @@ function CodeConstellation() {
   );
 }
 
+function ScrollProgressBar() {
+  const progressRef = useRef(null);
+
+  useEffect(() => {
+    const handleScroll = () => {
+      if (!progressRef.current) return;
+      const scrollTop = window.scrollY;
+      const docHeight = document.documentElement.scrollHeight - window.innerHeight;
+      const scrollPercent = docHeight > 0 ? (scrollTop / docHeight) * 100 : 0;
+      progressRef.current.style.width = `${scrollPercent}%`;
+    };
+
+    window.addEventListener('scroll', handleScroll, { passive: true });
+    return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  return <div ref={progressRef} className="scroll-progress-bar" aria-hidden="true" />;
+}
+
+function RotatingText() {
+  const [index, setIndex] = useState(0);
+  const [fade, setFade] = useState(false);
+
+  useEffect(() => {
+    const texts = [
+      'Backend Developer',
+      'Full Stack Engineer',
+      'Problem Solver',
+    ];
+
+    const interval = setInterval(() => {
+      setFade(true);
+      setTimeout(() => {
+        setIndex((prev) => (prev + 1) % texts.length);
+        setFade(false);
+      }, 300);
+    }, 3500); // Show each text for 3.5 seconds
+
+    return () => clearInterval(interval);
+  }, []);
+
+  const texts = [
+    'Backend Developer',
+    'Full Stack Engineer',
+    'Problem Solver',
+  ];
+
+  return (
+    <span
+      className={`rotating-text ${fade ? 'fade-out' : 'fade-in'}`}
+      role="status"
+      aria-live="polite"
+    >
+      {texts[index]}
+    </span>
+  );
+}
+
 function CustomCursor() {
   const cursorRef = useRef(null);
   const [enabled, setEnabled] = useState(false);
@@ -529,7 +587,9 @@ function Hero() {
         <div className="hero-content reveal">
           <p className="status-dot">{t('labels.open')}</p>
           <h1>Diego Chacón</h1>
-          <p className="hero-role">Software Developer</p>
+          <p className="hero-role">
+            <RotatingText />
+          </p>
           <p className="hero-tags">Backend · Full Stack · AI Integration</p>
           <p className="hero-copy">
             Construyo aplicaciones web, APIs e integraciones inteligentes con
@@ -1236,6 +1296,7 @@ function Footer() {
 function App() {
   return (
     <>
+      <ScrollProgressBar />
       <div className="global-background" aria-hidden="true">
         <CodeConstellation />
       </div>

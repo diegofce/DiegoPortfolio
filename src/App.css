@@ -369,6 +369,54 @@ small,
   animation-composition: add;
 }
 
+/* ========================================
+   SCROLL PROGRESS BAR
+   ======================================== */
+.scroll-progress-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  height: 3px;
+  width: 0;
+  background: linear-gradient(90deg, var(--accent), var(--success));
+  box-shadow: 0 0 12px rgba(143, 184, 255, 0.48);
+  transition: width 100ms linear;
+  z-index: 999;
+  pointer-events: none;
+}
+
+/* ========================================
+   ROTATING TEXT (HERO ROLE)
+   ======================================== */
+.rotating-text {
+  display: inline-block;
+  transition: opacity 300ms ease-in-out;
+  background: linear-gradient(135deg, var(--accent), var(--success));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  font-weight: var(--fw-semibold);
+  letter-spacing: var(--ls-tight);
+}
+
+.rotating-text.fade-out {
+  opacity: 0;
+}
+
+.rotating-text.fade-in {
+  opacity: 1;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .scroll-progress-bar {
+    transition: none;
+  }
+
+  .rotating-text {
+    transition: none;
+  }
+}
+
 @media (prefers-reduced-motion: reduce) {
   .reveal {
     opacity: 1;
