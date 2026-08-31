@@ -3,9 +3,9 @@ import { useLanguage } from './LanguageContext';
 const projectCovers = import.meta.glob(
   ['../assets/projects/**/cover.webp', '../assets/projects/**/cover.svg'],
   {
-  eager: true,
-  import: 'default',
-  query: '?url',
+    eager: true,
+    import: 'default',
+    query: '?url',
   },
 );
 
@@ -77,7 +77,9 @@ function ProjectPreview({ project }) {
         <ProjectVisual type={visualType} />
         <span>PROJECT PREVIEW</span>
         <strong>{project.category}</strong>
-        <small>{cover ? 'CURATED PRODUCT VIEW' : 'SCREENSHOT COMING SOON'}</small>
+        <small>
+          {cover ? 'CURATED PRODUCT VIEW' : 'SCREENSHOT COMING SOON'}
+        </small>
       </div>
     </div>
   );

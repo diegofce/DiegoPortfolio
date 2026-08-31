@@ -1,6 +1,6 @@
 import { useLanguage } from '../../common/LanguageContext';
-import { profile } from '../../data/profile';
 import { LineIcon } from '../../components/LineIcon';
+import { profile } from '../../data/profile';
 
 const principleCards = [
   {

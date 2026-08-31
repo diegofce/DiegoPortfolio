@@ -1,6 +1,6 @@
 import { useLanguage } from '../../common/LanguageContext';
-import { profile, socialLinks } from '../../data/profile';
 import { SocialIcon } from '../../components/SocialIcon';
+import { profile, socialLinks } from '../../data/profile';
 
 export function Contact() {
   const { t } = useLanguage();
