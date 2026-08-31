@@ -218,6 +218,22 @@ body {
   cursor: none !important;
 }
 
+svg {
+  fill: none;
+  stroke: currentColor;
+}
+
+.line-icon,
+.social-icon,
+.brand-mark,
+.stack-art {
+  fill: none;
+  stroke: currentColor;
+  stroke-linecap: round;
+  stroke-linejoin: round;
+  color: inherit;
+}
+
 .custom-cursor {
   position: fixed;
   top: -7px;
@@ -1781,6 +1797,7 @@ main {
   margin-block: 24px 16px;
   width: 34px;
   height: 34px;
+  color: var(--accent);
 }
 .stack-category h3 {
   font-size: 1.25rem;
@@ -1895,6 +1912,12 @@ main {
   line-height: 1.5;
 }
 
+.build-layer .line-icon {
+  width: 32px;
+  height: 32px;
+  color: var(--accent);
+}
+
 .education-grid {
   position: relative;
   grid-template-columns: 1fr;
@@ -1946,7 +1969,10 @@ main {
   padding: 0;
 }
 .education-grid article .line-icon {
+  width: 24px;
+  height: 24px;
   margin-top: 2px;
+  color: var(--accent);
 }
 .education-grid h3 {
   margin-top: 0;
@@ -2306,6 +2332,12 @@ main {
   background:
     linear-gradient(155deg, rgba(143, 184, 255, 0.08), transparent 62%),
     rgba(255, 255, 255, 0.028);
+}
+
+.principle-card .line-icon {
+  width: 28px;
+  height: 28px;
+  color: var(--accent);
 }
 
 .profile-card {

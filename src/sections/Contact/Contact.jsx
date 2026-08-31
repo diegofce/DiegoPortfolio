@@ -41,9 +41,8 @@ export function Contact() {
       <div className="contact-visual" aria-hidden="true">
         <svg
           viewBox="0 0 360 240"
-          width="360"
-          height="240"
           aria-hidden="true"
+          preserveAspectRatio="xMidYMid meet"
         >
           <path d="M42 80h80m116 0h80M122 80l58-42 58 42M122 80l58 58 58-58M180 38v100" />
           <circle cx="42" cy="80" r="14" />

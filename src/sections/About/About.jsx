@@ -62,8 +62,7 @@ export function About() {
           className="career-map"
           viewBox="0 0 420 280"
           aria-hidden="true"
-          width="420"
-          height="280"
+          preserveAspectRatio="xMidYMid meet"
         >
           <path d="M66 64C128 32 168 100 210 82s74-82 142-28" />
           <path d="M70 216c66-56 116 4 164-20s76-88 124-48" />
