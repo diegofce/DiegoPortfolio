@@ -2191,7 +2191,7 @@ main {
     font-size: clamp(3.5rem, 18vw, 5.5rem);
   }
   .about-visual {
-    min-height: 390px;
+    min-height: auto;
   }
   .principles-grid,
   .stack-categories,
@@ -2199,10 +2199,10 @@ main {
     grid-template-columns: 1fr;
   }
   .principle-card {
-    min-height: 150px;
+    min-height: auto;
   }
   .stack-category {
-    min-height: 225px;
+    min-height: auto;
   }
   .contact-section h2 {
     font-size: clamp(3.5rem, 17vw, 5rem);
@@ -2681,8 +2681,9 @@ main {
 
   .about-visual {
     grid-area: visual;
-    min-height: 380px;
+    min-height: auto;
     padding: 16px;
+    overflow: visible;
   }
 
   .about-story {
@@ -2694,7 +2695,11 @@ main {
   }
 
   .career-path {
+    position: relative;
+    inset: auto;
+    display: grid;
     grid-template-columns: 1fr;
+    gap: 8px;
   }
 
   .career-path article {
@@ -2709,7 +2714,16 @@ main {
   }
 
   .career-map {
-    height: 44%;
+    position: relative;
+    inset: auto;
+    width: 100%;
+    height: auto;
+    max-height: 220px;
+    margin-bottom: 16px;
+  }
+
+  .system-card {
+    margin-top: 12px;
   }
 
   .stack-category div:last-child span {
@@ -2773,7 +2787,7 @@ main {
   .hero-inner {
     grid-template-columns: minmax(0, 1fr) 92px;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 80px;
     padding-bottom: 32px;
   }
