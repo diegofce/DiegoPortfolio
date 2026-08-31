@@ -61,7 +61,9 @@ export function Navbar() {
       { key: 'contact', href: '#contact' },
     ];
 
-    const sections = navItemsArray.map((item) => document.querySelector(item.href));
+    const sections = navItemsArray.map((item) =>
+      document.querySelector(item.href),
+    );
     sections.forEach((section) => {
       if (section) observer.observe(section);
     });

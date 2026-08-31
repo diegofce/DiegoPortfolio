@@ -1,8 +1,8 @@
 import { useEffect, useState } from 'react';
-import { useLanguage } from '../../common/LanguageContext';
-import { socialLinks, profile } from '../../data/profile';
 import cvFile from '../../assets/Diego_Chacon_Desarrollador.pdf';
 import profilePhoto from '../../assets/foto-perfil.jpeg';
+import { useLanguage } from '../../common/LanguageContext';
+import { profile, socialLinks } from '../../data/profile';
 
 function RotatingText() {
   const [index, setIndex] = useState(0);
