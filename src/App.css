@@ -1614,7 +1614,7 @@ main {
 
   .hero-inner {
     min-height: 100svh;
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
     gap: 16px;
     padding-top: 96px;
     padding-bottom: 48px;
@@ -1622,7 +1622,7 @@ main {
   }
 
   .hero-portrait {
-    display: none;
+    justify-items: center;
   }
 
   .hero h1 {
@@ -2656,7 +2656,7 @@ main {
   }
 
   .hero-inner {
-    grid-template-columns: 1fr;
+    grid-template-columns: 1fr auto;
     gap: 12px;
     align-items: center;
     padding-top: 80px;
@@ -2664,11 +2664,11 @@ main {
   }
 
   .hero-portrait {
-    display: none;
+    justify-items: center;
   }
 
   .portrait-frame {
-    width: 92px;
+    width: 110px;
   }
 
   .mobile-nav a,
