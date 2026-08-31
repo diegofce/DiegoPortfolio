@@ -2186,6 +2186,7 @@ main {
 }
 
 .about-visual {
+  position: relative;
   min-height: 470px;
   padding: 22px;
   background:
@@ -2566,7 +2567,7 @@ main {
 
   .about-visual {
     grid-area: visual;
-    min-height: 380px;
+    min-height: auto;
     padding: 16px;
   }
 
