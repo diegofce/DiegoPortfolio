@@ -1614,11 +1614,15 @@ main {
 
   .hero-inner {
     min-height: 100svh;
-    grid-template-columns: minmax(0, 1fr) 112px;
+    grid-template-columns: 1fr;
     gap: 16px;
     padding-top: 96px;
     padding-bottom: 48px;
-    align-items: flex-start;
+    align-items: center;
+  }
+
+  .hero-portrait {
+    display: none;
   }
 
   .hero h1 {
@@ -2188,10 +2192,14 @@ main {
     grid-column: auto;
   }
   .about-intro h2 {
-    font-size: clamp(3.5rem, 18vw, 5.5rem);
+    max-width: 100%;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
+  }
+  .about-intro > p {
+    max-width: 100%;
   }
   .about-visual {
-    min-height: 390px;
+    min-height: 320px;
   }
   .principles-grid,
   .stack-categories,
@@ -2205,7 +2213,8 @@ main {
     min-height: 225px;
   }
   .contact-section h2 {
-    font-size: clamp(3.5rem, 17vw, 5rem);
+    max-width: 100%;
+    font-size: clamp(2.5rem, 8vw, 4.5rem);
   }
   .contact-visual {
     min-height: 180px;
@@ -2771,11 +2780,15 @@ main {
   }
 
   .hero-inner {
-    grid-template-columns: minmax(0, 1fr) 92px;
+    grid-template-columns: 1fr;
     gap: 12px;
-    align-items: flex-start;
+    align-items: center;
     padding-top: 80px;
     padding-bottom: 32px;
+  }
+
+  .hero-portrait {
+    display: none;
   }
 
   .portrait-frame {
