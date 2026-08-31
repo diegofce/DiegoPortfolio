@@ -1618,6 +1618,7 @@ main {
     gap: 16px;
     padding-top: 96px;
     padding-bottom: 48px;
+    align-items: flex-start;
   }
 
   .hero h1 {
@@ -2680,7 +2681,7 @@ main {
 
   .about-visual {
     grid-area: visual;
-    min-height: 520px;
+    min-height: 380px;
     padding: 16px;
   }
 
@@ -2771,7 +2772,10 @@ main {
 
   .hero-inner {
     grid-template-columns: minmax(0, 1fr) 92px;
-    gap: 10px;
+    gap: 12px;
+    align-items: flex-start;
+    padding-top: 80px;
+    padding-bottom: 32px;
   }
 
   .portrait-frame {

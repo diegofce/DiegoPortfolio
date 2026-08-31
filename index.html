@@ -78,6 +78,11 @@
         ]
       }
     </script>
+    <script>
+      // Establish theme before React mounts to prevent light mode flash
+      const theme = localStorage.getItem('theme') || 'dark';
+      document.documentElement.setAttribute('data-theme', theme);
+    </script>
   </head>
   <body>
     <div id="root"></div>
