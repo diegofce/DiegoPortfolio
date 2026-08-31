@@ -1564,6 +1564,7 @@ main {
   }
 
   .about-intro,
+  .about-visual,
   .about-story,
   .about-section .profile-card {
     grid-column: 1 / -1;
@@ -2186,6 +2187,7 @@ main {
 }
 
 .about-section {
+  display: grid;
   grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 28px 56px;
   align-items: stretch;
@@ -2260,6 +2262,7 @@ main {
 }
 
 .career-path {
+  position: absolute;
   inset: auto 22px 22px;
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
@@ -2324,14 +2327,41 @@ main {
 }
 
 .principles-grid {
+  display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 12px;
 }
 
 .principle-card {
+  display: grid;
+  min-height: 190px;
+  align-content: start;
+  gap: 10px;
+  border: 1px solid var(--line);
+  border-radius: var(--radius-md);
+  padding: 18px;
   background:
     linear-gradient(155deg, rgba(143, 184, 255, 0.08), transparent 62%),
     rgba(255, 255, 255, 0.028);
+}
+
+.principle-card > span:first-child {
+  color: var(--accent);
+  font-family: var(--font-mono);
+  font-size: 0.72rem;
+}
+
+.principle-card h3 {
+  color: var(--text);
+  font-size: 1.05rem;
+  line-height: 1.2;
+}
+
+.principle-card p {
+  margin: 0;
+  color: var(--muted);
+  font-size: 0.86rem;
+  line-height: 1.55;
 }
 
 .principle-card .line-icon {
