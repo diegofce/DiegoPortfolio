@@ -2186,7 +2186,7 @@ main {
 }
 
 .about-section {
-  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
   gap: 28px 56px;
   align-items: stretch;
 }
@@ -2583,7 +2583,12 @@ main {
 }
 
 @media (max-width: 620px) {
+  main {
+    padding-bottom: 76px;
+  }
+
   .about-section {
+    grid-template-columns: minmax(0, 1fr);
     grid-template-areas:
       'intro'
       'visual'
@@ -2598,8 +2603,9 @@ main {
   .about-visual {
     grid-area: visual;
     min-height: auto;
+    min-width: 0;
     padding: 16px;
-    overflow: visible;
+    overflow: hidden;
   }
 
   .about-story {
@@ -2608,6 +2614,18 @@ main {
 
   .about-section .profile-card {
     grid-area: status;
+  }
+
+  .principles-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .about-intro,
+  .about-story,
+  .about-section .profile-card,
+  .principles-grid,
+  .principle-card {
+    min-width: 0;
   }
 
   .career-path {
@@ -2639,7 +2657,9 @@ main {
   }
 
   .system-card {
+    max-width: 100%;
     margin-top: 12px;
+    overflow-wrap: anywhere;
   }
 
   .stack-category div:last-child span {
@@ -2690,6 +2710,20 @@ main {
 
   .site-footer a {
     min-height: 36px;
+  }
+
+  .assistant-widget {
+    right: 12px;
+    bottom: 12px;
+    left: auto;
+  }
+
+  .assistant-toggle {
+    width: auto;
+    max-width: calc(100vw - 24px);
+    min-height: 42px;
+    padding-inline: 16px;
+    font-size: 0.78rem;
   }
 }
 
