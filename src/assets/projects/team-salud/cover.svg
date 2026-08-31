@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">TeamSalud product preview</title>
+  <desc id="desc">Healthcare dashboard with patient and appointment panels</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#102b36"/>
+      <stop offset="1" stop-color="#071016"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#72e0b0"/>
+      <stop offset="1" stop-color="#6aa9ff"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="url(#bg)"/>
+  <path d="M0 420 250 300l220 80 260-180 230 90v250H0Z" fill="#0d2029" opacity=".8"/>
+  <rect x="64" y="58" width="832" height="424" rx="18" fill="#0b151d" stroke="#284454"/>
+  <rect x="64" y="58" width="832" height="54" rx="18" fill="#10232d"/>
+  <circle cx="96" cy="85" r="9" fill="#72e0b0"/>
+  <path d="M122 85h130M782 85h48" stroke="#6b8797" stroke-width="8" stroke-linecap="round"/>
+  <rect x="98" y="142" width="236" height="300" rx="12" fill="#102530" stroke="#284454"/>
+  <circle cx="216" cy="208" r="48" fill="#163b43" stroke="#72e0b0" stroke-width="3"/>
+  <path d="M216 183v50M191 208h50" stroke="#72e0b0" stroke-width="9" stroke-linecap="round"/>
+  <path d="M144 300h140M144 332h108M144 364h126" stroke="#7895a3" stroke-width="10" stroke-linecap="round"/>
+  <rect x="370" y="142" width="494" height="136" rx="12" fill="#101f29" stroke="#284454"/>
+  <path d="M402 238c42-72 64 16 105-42s61 55 105-8 72 39 113-34" fill="none" stroke="url(#accent)" stroke-width="5"/>
+  <path d="M402 184h398" stroke="#284454" stroke-width="2" stroke-dasharray="6 10"/>
+  <rect x="370" y="306" width="236" height="136" rx="12" fill="#101f29" stroke="#284454"/>
+  <rect x="632" y="306" width="232" height="136" rx="12" fill="#101f29" stroke="#284454"/>
+  <path d="M404 346h130M404 378h96M666 346h130M666 378h82" stroke="#8da7b4" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="422" cy="414" r="10" fill="#72e0b0"/><circle cx="684" cy="414" r="10" fill="#6aa9ff"/>
+</svg>

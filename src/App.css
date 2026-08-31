@@ -2388,6 +2388,7 @@ main {
 }
 
 .stack-category {
+  overflow: hidden;
   padding: 22px;
   background:
     radial-gradient(

@@ -1,0 +1,29 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 960 540" role="img" aria-labelledby="title desc">
+  <title id="title">AI integration product preview</title>
+  <desc id="desc">Automation workflow connecting a prompt, service and result</desc>
+  <defs>
+    <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#20203d"/>
+      <stop offset="1" stop-color="#0b101b"/>
+    </linearGradient>
+    <linearGradient id="accent" x1="0" y1="0" x2="1" y2="1">
+      <stop stop-color="#a6a1ff"/>
+      <stop offset="1" stop-color="#79d6a3"/>
+    </linearGradient>
+  </defs>
+  <rect width="960" height="540" rx="24" fill="url(#bg)"/>
+  <path d="M0 440 220 330l170 54 230-150 340 116v190H0Z" fill="#15172b" opacity=".8"/>
+  <rect x="62" y="58" width="836" height="424" rx="18" fill="#0d1422" stroke="#404164"/>
+  <rect x="62" y="58" width="836" height="56" rx="18" fill="#171a31"/>
+  <circle cx="96" cy="86" r="9" fill="#a6a1ff"/>
+  <path d="M126 86h176M778 86h82" stroke="#777a9d" stroke-width="8" stroke-linecap="round"/>
+  <circle cx="480" cy="270" r="116" fill="#202349" stroke="url(#accent)" stroke-width="5"/>
+  <circle cx="480" cy="270" r="54" fill="#151a32" stroke="#a6a1ff" stroke-width="3"/>
+  <path d="M480 190v34M480 316v34M400 270h34M526 270h34M424 214l24 24M512 302l24 24M424 326l24-24M512 238l24-24" stroke="#79d6a3" stroke-width="7" stroke-linecap="round"/>
+  <path d="M196 270h168M596 270h168" stroke="url(#accent)" stroke-width="5" stroke-dasharray="12 12"/>
+  <rect x="112" y="212" width="150" height="116" rx="14" fill="#171d35" stroke="#404164"/>
+  <path d="M144 250h86M144 278h58" stroke="#aeb1d3" stroke-width="10" stroke-linecap="round"/>
+  <rect x="698" y="212" width="150" height="116" rx="14" fill="#171d35" stroke="#404164"/>
+  <path d="M730 250h86M730 278h58" stroke="#aeb1d3" stroke-width="10" stroke-linecap="round"/>
+  <circle cx="480" cy="270" r="8" fill="#79d6a3"/>
+</svg>

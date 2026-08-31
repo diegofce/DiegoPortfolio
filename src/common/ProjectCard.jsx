@@ -1,10 +1,13 @@
 import { useLanguage } from './LanguageContext';
 
-const projectCovers = import.meta.glob('../assets/projects/**/cover.webp', {
+const projectCovers = import.meta.glob(
+  ['../assets/projects/**/cover.webp', '../assets/projects/**/cover.svg'],
+  {
   eager: true,
   import: 'default',
   query: '?url',
-});
+  },
+);
 
 function ProjectVisual({ type }) {
   return (
@@ -43,8 +46,9 @@ function ProjectVisual({ type }) {
 }
 
 function ProjectPreview({ project }) {
-  const key = `./assets/projects/${project.slug}/cover.webp`;
-  const cover = projectCovers[key];
+  const cover =
+    projectCovers[`../assets/projects/${project.slug}/cover.svg`] ||
+    projectCovers[`../assets/projects/${project.slug}/cover.webp`];
   const visualType =
     project.title === 'BookingSaaS'
       ? 'calendar'
@@ -73,7 +77,7 @@ function ProjectPreview({ project }) {
         <ProjectVisual type={visualType} />
         <span>PROJECT PREVIEW</span>
         <strong>{project.category}</strong>
-        <small>SCREENSHOT COMING SOON</small>
+        <small>{cover ? 'CURATED PRODUCT VIEW' : 'SCREENSHOT COMING SOON'}</small>
       </div>
     </div>
   );
