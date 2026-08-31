@@ -1545,20 +1545,12 @@ main {
 
   .about-section {
     grid-template-columns: 1fr 1fr;
-    gap: 24px;
   }
 
-  .about-intro {
-    grid-column: 1 / -1;
-  }
-
+  .about-intro,
   .about-story,
   .about-section .profile-card {
     grid-column: 1 / -1;
-  }
-
-  .about-visual {
-    min-height: 360px;
   }
 
   .stack-categories,
@@ -1616,39 +1608,21 @@ main {
     width: min(100% - 24px, var(--container));
   }
 
-  /* ===== HERO MOBILE: Vertical stack, centered photo ===== */
   .hero {
-    min-height: auto;
     min-height: 100svh;
   }
 
   .hero-inner {
-    display: flex;
-    flex-direction: column;
     min-height: 100svh;
-    gap: 0;
-    padding-top: 100px;
+    grid-template-columns: 1fr auto;
+    gap: 16px;
+    padding-top: 96px;
     padding-bottom: 48px;
     align-items: center;
-    justify-content: center;
   }
 
   .hero-portrait {
-    order: -1;
     justify-items: center;
-    margin-bottom: 32px;
-  }
-
-  .portrait-frame {
-    width: 160px;
-    aspect-ratio: 0.85;
-    border-radius: 42% 42% 34% 34%;
-  }
-
-  .hero-content {
-    width: 100%;
-    max-width: 100%;
-    text-align: center;
   }
 
   .hero h1 {
@@ -1662,12 +1636,6 @@ main {
 
   .hero-copy {
     margin-top: 20px;
-    max-width: 100%;
-  }
-
-  .hero-actions {
-    justify-content: center;
-    gap: 10px;
   }
 
   .hero-actions .button,
@@ -1675,11 +1643,19 @@ main {
     width: 100%;
   }
 
-  .hero-portrait figcaption {
-    justify-content: center;
+  .hero-actions {
+    gap: 10px;
   }
 
-  /* ===== STACK, PROJECTS, EDUCATION: Single column ===== */
+  .portrait-frame {
+    width: 112px;
+    border-radius: 50%;
+  }
+
+  .hero-portrait figcaption {
+    display: none;
+  }
+
   .stack-categories,
   .projects-grid,
   .education-grid {
@@ -1694,7 +1670,6 @@ main {
     min-width: 156px;
   }
 
-  /* ===== ASSISTANT WIDGET ===== */
   .assistant-widget {
     right: 12px;
     bottom: 12px;
@@ -2080,55 +2055,46 @@ main {
 }
 
 @media (max-width: 620px) {
-  .about-section {
-    display: flex;
-    flex-direction: column;
+  .about-section,
+  .contact-section {
+    display: grid;
+    grid-template-columns: 1fr;
     gap: 32px;
   }
-
+  .about-intro,
+  .about-story,
+  .about-section .profile-card,
+  .contact-section .contact-links {
+    grid-column: auto;
+  }
   .about-intro h2 {
     max-width: 100%;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
   }
-
   .about-intro > p {
     max-width: 100%;
   }
-
   .about-visual {
-    min-height: auto;
-    padding: 16px;
+    min-height: 320px;
   }
-
   .principles-grid,
   .stack-categories,
   .architecture-board {
     grid-template-columns: 1fr;
   }
-
   .principle-card {
     min-height: 150px;
   }
-
   .stack-category {
     min-height: 225px;
   }
-
-  .contact-section {
-    display: flex;
-    flex-direction: column;
-    gap: 32px;
-  }
-
   .contact-section h2 {
     max-width: 100%;
     font-size: clamp(2.5rem, 8vw, 4.5rem);
   }
-
   .contact-visual {
     min-height: 180px;
   }
-
   .footer-end {
     display: grid;
     gap: 8px;
@@ -2197,7 +2163,7 @@ main {
 }
 
 .about-section {
-  grid-template-columns: minmax(0, 0.95fr) minmax(0, 1.05fr);
+  grid-template-columns: minmax(0, 0.95fr) minmax(360px, 1.05fr);
   gap: 28px 56px;
   align-items: stretch;
 }
@@ -2588,13 +2554,29 @@ main {
 
 @media (max-width: 620px) {
   .about-section {
-    display: flex;
-    flex-direction: column;
+    grid-template-areas:
+      'intro'
+      'visual'
+      'story'
+      'status';
+  }
+
+  .about-intro {
+    grid-area: intro;
   }
 
   .about-visual {
+    grid-area: visual;
     min-height: auto;
     padding: 16px;
+  }
+
+  .about-story {
+    grid-area: story;
+  }
+
+  .about-section .profile-card {
+    grid-area: status;
   }
 
   .career-path {
@@ -2675,17 +2657,19 @@ main {
   }
 
   .hero-inner {
-    gap: 0;
+    grid-template-columns: 1fr auto;
+    gap: 12px;
+    align-items: center;
     padding-top: 80px;
     padding-bottom: 32px;
   }
 
   .hero-portrait {
-    margin-bottom: 24px;
+    justify-items: center;
   }
 
   .portrait-frame {
-    width: 130px;
+    width: 110px;
   }
 
   .mobile-nav a,
