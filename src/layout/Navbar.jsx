@@ -1,5 +1,5 @@
 import { useEffect, useState } from 'react';
-import cvFile from '../assets/Diego_Chacon_Desarrollador.pdf';
+import cvFile from '../assets/Diego_Chacon_Software_Developer.pdf';
 import { useLanguage } from '../common/LanguageContext';
 import { useTheme } from '../common/ThemeContext';
 import { BrandMark } from '../components/BrandMark';
